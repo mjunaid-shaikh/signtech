@@ -1,0 +1,987 @@
+// ── Tokens ────────────────────────────────────────────────────────────────────
+$black: #0D0D0D;
+$dark: #141414;
+$dark-card: #1A1A1A;
+$dark-border: #252525;
+$amber: #F59E0B;
+$amber-light: #FCD34D;
+$amber-dim: rgba(245, 158, 11, 0.1);
+$amber-glow: rgba(245, 158, 11, 0.18);
+$white: #FFFFFF;
+$off-white: #F0EFE9;
+$muted: #777777;
+$muted-light: #AAAAAA;
+$green-cnc: #10B981;
+
+$font-display: 'Bebas Neue', 'Impact', sans-serif;
+$font-body: 'Inter', 'Helvetica Neue', sans-serif;
+
+// ── Shared ────────────────────────────────────────────────────────────────────
+.section-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: $amber;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.75rem;
+
+    &.light {
+        color: $amber-light;
+    }
+}
+
+.section-headline {
+    font-family: $font-display;
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    line-height: 1.05;
+    color: $white;
+    margin-bottom: 1.2rem;
+
+    &.light {
+        color: $white;
+    }
+}
+
+.section-body {
+    font-size: 0.95rem;
+    line-height: 1.78;
+    color: $muted-light;
+    margin-bottom: 0.9rem;
+
+    &.light {
+        color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+.btn-primary-custom {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: $amber;
+    color: $black;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.6rem;
+    border-radius: 5px;
+    text-decoration: none;
+    border: 2px solid $amber;
+    transition: background .2s, transform .15s, box-shadow .2s;
+
+    &:hover {
+        background: $amber-light;
+        border-color: $amber-light;
+        color: $black;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(245, 158, 11, 0.22);
+    }
+
+    &.btn-lg-custom {
+        padding: 0.9rem 2rem;
+        font-size: 0.9rem;
+    }
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// HERO
+// ══════════════════════════════════════════════════════════════════════════════
+.services-hero {
+    position: relative;
+    background: $dark;
+    padding: 6rem 0 4rem;
+    overflow: hidden;
+    border-bottom: 1px solid $dark-border;
+
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        background: radial-gradient(ellipse at 80% 50%, rgba(245, 158, 11, 0.06) 0%, transparent 65%);
+        pointer-events: none;
+    }
+}
+
+.hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(245, 158, 11, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245, 158, 11, 0.03) 1px, transparent 1px);
+    background-size: 52px 52px;
+    pointer-events: none;
+}
+
+.hero-neon-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, $amber 40%, $amber-light 60%, transparent 100%);
+}
+
+.min-vh-40 {
+    min-height: 40vh;
+}
+
+.page-headline {
+    font-family: $font-display;
+    font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+    line-height: 1.0;
+    color: $white;
+    margin-bottom: 1.25rem;
+
+    .headline-outline {
+        -webkit-text-stroke: 2px $amber;
+        color: transparent;
+    }
+}
+
+.page-subtext {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: $muted-light;
+    max-width: 540px;
+}
+
+// Hero stat cluster (desktop right side)
+.hero-stat-cluster {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    border: 1px solid $dark-border;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.hsc-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem 2rem;
+    background: $dark-card;
+    border-bottom: 1px solid $dark-border;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.hsc-num {
+    font-family: $font-display;
+    font-size: 2.2rem;
+    color: $amber;
+    letter-spacing: 0.06em;
+    line-height: 1;
+}
+
+.hsc-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    color: $muted;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// FILTER BAR
+// ══════════════════════════════════════════════════════════════════════════════
+.services-section {
+    background: $black;
+    padding: 5rem 0;
+}
+
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+}
+
+.filter-btn {
+    background: $dark-card;
+    border: 1.5px solid $dark-border;
+    color: $muted-light;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 1.1rem;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background .2s, border-color .2s, color .2s;
+
+    &:hover {
+        border-color: $amber;
+        color: $amber;
+    }
+
+    &.active {
+        background: $amber;
+        border-color: $amber;
+        color: $black;
+    }
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// SERVICE CARDS GRID
+// ══════════════════════════════════════════════════════════════════════════════
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+
+    @media (max-width: 1199px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 575px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.service-card {
+    background: $dark-card;
+    border: 1px solid $dark-border;
+    border-radius: 10px;
+    padding: 1.75rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: border-color .25s, transform .22s, box-shadow .25s;
+
+    // Top accent line that grows on hover
+    .card-accent-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: $amber;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform .3s ease;
+    }
+
+    &:hover {
+        border-color: rgba(245, 158, 11, 0.4);
+        transform: translateY(-5px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+
+        .card-accent-line {
+            transform: scaleX(1);
+        }
+
+        .card-cta {
+            color: $amber;
+            gap: 10px;
+        }
+    }
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1.1rem;
+}
+
+.card-icon-wrap {
+    width: 52px;
+    height: 52px;
+    background: $amber-dim;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $amber;
+    flex-shrink: 0;
+    transition: background .2s;
+
+    .service-card:hover & {
+        background: $amber-glow;
+    }
+}
+
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $amber;
+}
+
+.card-category-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $muted;
+    background: $dark;
+    border: 1px solid $dark-border;
+    padding: 0.25rem 0.6rem;
+    border-radius: 100px;
+    white-space: nowrap;
+}
+
+.card-title {
+    font-family: $font-display;
+    font-size: 1.45rem;
+    letter-spacing: 0.04em;
+    color: $white;
+    margin-bottom: 0.65rem;
+}
+
+.card-desc {
+    font-size: 0.88rem;
+    line-height: 1.68;
+    color: $muted-light;
+    margin-bottom: 1.25rem;
+    flex: 1;
+}
+
+.card-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+
+    li {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 0.83rem;
+        color: $off-white;
+        line-height: 1.45;
+
+        svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+    }
+}
+
+.card-ideal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: baseline;
+    font-size: 0.78rem;
+    margin-bottom: 1.25rem;
+    padding: 0.6rem 0.8rem;
+    background: $dark;
+    border-radius: 5px;
+    border: 1px solid $dark-border;
+}
+
+.ideal-label {
+    font-weight: 700;
+    color: $muted;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.ideal-value {
+    color: $muted-light;
+}
+
+.card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: $muted;
+    text-decoration: none;
+    transition: color .2s, gap .2s;
+    align-self: flex-start;
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// CNC CALLOUT CARD
+// ══════════════════════════════════════════════════════════════════════════════
+.cnc-callout {
+    background: $dark-card;
+    border: 1px solid $dark-border;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    // margin: 4rem;
+
+    // Top bar — green for CNC (different from amber services)
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, $green-cnc, #34D399);
+    }
+}
+
+.cnc-callout-inner {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 3rem;
+    padding: 2.5rem;
+
+    @media (max-width: 991px) {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+.cnc-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: $green-cnc;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 1.1rem;
+
+    &::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: $green-cnc;
+        animation: blink-green 2s ease-in-out infinite;
+    }
+}
+
+@keyframes blink-green {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+.cnc-title {
+    font-family: $font-display;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    letter-spacing: 0.04em;
+    color: $white;
+    margin-bottom: 0.9rem;
+}
+
+.cnc-desc {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: $muted-light;
+    max-width: 520px;
+    margin-bottom: 1.75rem;
+}
+
+.cnc-materials {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.cnc-material {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.65rem 1rem;
+    background: $dark;
+    border: 1px solid $dark-border;
+    border-radius: 6px;
+}
+
+.cnc-material-icon {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 6px;
+    color: $green-cnc;
+}
+
+.cnc-material-name {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: $white;
+}
+
+.cnc-material-note {
+    display: block;
+    font-size: 0.75rem;
+    color: $muted;
+    margin-top: 1px;
+}
+
+// CNC right panel
+.cnc-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    text-align: center;
+
+    @media (max-width: 991px) {
+        align-items: flex-start;
+        text-align: left;
+    }
+}
+
+// Animated CNC illustration
+.cnc-illustration {
+    width: 100%;
+    max-width: 300px;
+    background: $dark;
+    border: 1px solid $dark-border;
+    border-radius: 8px;
+    padding: 1.5rem 1.5rem 1rem;
+    position: relative;
+}
+
+.cnc-machine {
+    position: relative;
+    height: 40px;
+    margin-bottom: 0.75rem;
+}
+
+.cnc-rail {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: #2a2a2a;
+    border-radius: 3px;
+}
+
+.cnc-head {
+    position: absolute;
+    top: 0;
+    animation: cnc-traverse 2.5s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes cnc-traverse {
+
+    0%,
+    100% {
+        left: 5%;
+    }
+
+    50% {
+        left: 70%;
+    }
+}
+
+.cnc-head-body {
+    width: 24px;
+    height: 24px;
+    background: #333;
+    border-radius: 4px;
+    border: 1px solid #444;
+}
+
+.cnc-bit {
+    width: 4px;
+    height: 20px;
+    background: $amber;
+    border-radius: 0 0 2px 2px;
+    margin-top: -1px;
+    animation: cnc-bit-pulse 0.4s ease-in-out infinite;
+}
+
+@keyframes cnc-bit-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.cnc-workpiece {
+    height: 10px;
+    background: #2d1f00;
+    border-radius: 3px;
+    border: 1px solid #4a3000;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.cnc-cut-line {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    height: 4px;
+    background: rgba(245, 158, 11, 0.7);
+    border-radius: 2px;
+    animation: cnc-cut 2.5s ease-in-out infinite;
+}
+
+@keyframes cnc-cut {
+    0% {
+        width: 5%;
+    }
+
+    50% {
+        width: 74%;
+    }
+
+    100% {
+        width: 5%;
+    }
+}
+
+.cnc-sparks {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    height: 10px;
+
+    span {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: $amber;
+        animation: spark 0.5s ease-in-out infinite;
+
+        &:nth-child(2) {
+            animation-delay: 0.1s;
+            width: 2px;
+            height: 2px;
+        }
+
+        &:nth-child(3) {
+            animation-delay: 0.2s;
+            background: $amber-light;
+        }
+
+        &:nth-child(4) {
+            animation-delay: 0.3s;
+            width: 2px;
+            height: 2px;
+        }
+    }
+}
+
+@keyframes spark {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-4px);
+    }
+}
+
+.cnc-note {
+    font-size: 0.75rem;
+    color: $muted;
+    margin: 0;
+
+    &::before {
+        content: '* ';
+    }
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// PROCESS
+// ══════════════════════════════════════════════════════════════════════════════
+.process-section {
+    background: $dark;
+    padding: 7rem 0;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: $dark-border;
+    border: 1px solid $dark-border;
+    border-radius: 10px;
+    overflow: hidden;
+
+    @media (max-width: 991px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.process-step {
+    position: relative;
+    background: $dark-card;
+    padding: 2rem 1.5rem;
+    text-align: center;
+
+    &:hover {
+        background: rgba(245, 158, 11, 0.03);
+    }
+}
+
+.step-number {
+    font-family: $font-display;
+    font-size: 3rem;
+    color: $dark-border;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.step-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 1.1rem;
+    background: $amber-dim;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $amber;
+}
+
+.step-title {
+    font-family: $font-display;
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+    color: $white;
+    margin-bottom: 0.55rem;
+}
+
+.step-desc {
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: $muted-light;
+    margin: 0;
+}
+
+.step-connector {
+    display: none;
+}
+
+// handled by grid gap line
+
+// ══════════════════════════════════════════════════════════════════════════════
+// MATERIALS
+// ══════════════════════════════════════════════════════════════════════════════
+.materials-section {
+    background: $black;
+    padding: 7rem 0;
+}
+
+.materials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+
+    @media (max-width: 575px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.material-card {
+    background: $dark-card;
+    border: 1px solid $dark-border;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: border-color .22s, transform .2s;
+
+    &:hover {
+        border-color: rgba(245, 158, 11, 0.3);
+        transform: translateY(-3px);
+    }
+}
+
+.material-card-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 1rem;
+    background: $amber-dim;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $amber;
+}
+
+.material-name {
+    font-family: $font-display;
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+    color: $white;
+    margin-bottom: 0.45rem;
+}
+
+.material-desc {
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: $muted-light;
+    margin-bottom: 0.85rem;
+}
+
+.material-spec {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: $amber;
+    text-transform: uppercase;
+    padding: 0.35rem 0.7rem;
+    background: $amber-dim;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// CTA STRIP
+// ══════════════════════════════════════════════════════════════════════════════
+.cta-strip {
+    background: $amber;
+    padding: 3.5rem 0;
+
+    .cta-heading {
+        font-family: $font-display;
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        letter-spacing: 0.04em;
+        color: $black;
+        margin-bottom: 0.4rem;
+    }
+
+    .cta-sub {
+        font-size: 0.95rem;
+        color: rgba(0, 0, 0, 0.6);
+        margin: 0;
+    }
+
+    .btn-primary-custom {
+        background: $black;
+        border-color: $black;
+        color: $amber;
+
+        &:hover {
+            background: #1a1a1a;
+            border-color: #1a1a1a;
+            color: $amber-light;
+            box-shadow: none;
+        }
+    }
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// RESPONSIVE
+// ══════════════════════════════════════════════════════════════════════════════
+@media (max-width: 991px) {
+    .services-hero {
+        padding: 5rem 0 3rem;
+    }
+
+    .services-section,
+    .process-section,
+    .materials-section {
+        padding: 5rem 0;
+    }
+
+    .cnc-callout-inner {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .page-headline {
+        font-size: clamp(2rem, 9vw, 3rem);
+    }
+
+    .services-hero {
+        padding: 4rem 0 2.5rem;
+    }
+
+    .services-section,
+    .process-section,
+    .materials-section {
+        padding: 4rem 0;
+    }
+
+    .cnc-callout-inner {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .cta-strip {
+        padding: 2.5rem 0;
+        text-align: center;
+    }
+
+    .cta-strip .text-lg-end {
+        text-align: center !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-headline {
+        font-size: 1.85rem;
+    }
+
+    .filter-btn {
+        font-size: 0.78rem;
+        padding: 0.45rem 0.9rem;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .cnc-head,
+    .cnc-cut-line,
+    .cnc-bit,
+    .cnc-sparks span,
+    .cnc-badge::before {
+        animation: none !important;
+    }
+
+    .service-card {
+        transition: none;
+    }
+}

@@ -1,0 +1,244 @@
+<!-- ===== PAGE HERO ===== -->
+<section class="gallery-hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-neon-bar"></div>
+    <div class="container">
+        <div class="row align-items-center" style="min-height:38vh">
+            <div class="col-lg-7">
+                <p class="section-eyebrow">OUR WORK</p>
+                <h1 class="page-headline">
+                    Signs We've Built.<br>
+                    <span class="headline-outline">Brands We've Lifted.</span>
+                </h1>
+                <p class="page-subtext">
+                    Every project below was designed, fabricated, and installed by us — in-house,
+                    no outsourcing. {{ galleryItems.length }}+ delivered and counting.
+                </p>
+            </div>
+            <div class="col-lg-5 d-none d-lg-flex justify-content-end align-items-center">
+                <div class="hero-type-chips">
+                    <div class="type-chip" *ngFor="let cat of categories.slice(1)">
+                        <span class="type-chip-dot" [style.background]="cat.color"></span>
+                        {{ cat.label }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FILTER + GRID ===== -->
+<section class="gallery-section">
+    <div class="container">
+
+        <!-- Filter bar -->
+        <div class="filter-bar gsap-reveal">
+            <button class="filter-btn" *ngFor="let cat of categories" [class.active]="activeCategory === cat.key"
+                [style.--cat-color]="cat.color" (click)="setCategory(cat.key)">
+                {{ cat.label }}
+                <span class="filter-count">{{ getCount(cat.key) }}</span>
+            </button>
+        </div>
+
+        <!-- Results count -->
+        <p class="results-label">
+            Showing <strong>{{ filteredItems.length }}</strong> project{{ filteredItems.length !== 1 ? 's' : '' }}
+            <span *ngIf="activeCategory !== 'all'"> in {{ getActiveLabel() }}</span>
+        </p>
+
+        <!-- Masonry-style grid -->
+        <div class="gallery-grid" #galleryGrid>
+            <div class="gallery-card" *ngFor="let item of filteredItems; let i = index" (click)="openLightbox(i)"
+                [attr.data-category]="item.category">
+
+                <!-- Media area — fixed 4:3 -->
+                <div class="card-media">
+                    <!-- VIDEO -->
+                    <ng-container *ngIf="item.type === 'video'; else imageBlock">
+                        <div class="card-video-thumb">
+                            <img *ngIf="item.thumb" [src]="item.thumb" [alt]="item.title" class="card-img"
+                                loading="lazy">
+                            <div class="card-img-placeholder" *ngIf="!item.thumb" [innerHTML]="item.placeholder"></div>
+                            <div class="video-badge">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3" />
+                                </svg>
+                                Video
+                            </div>
+                        </div>
+                    </ng-container>
+
+                    <!-- IMAGE -->
+                    <ng-template #imageBlock>
+                        <img *ngIf="item.src" [src]="item.src" [alt]="item.title" class="card-img" loading="lazy">
+                        <div class="card-img-placeholder" *ngIf="!item.src" [innerHTML]="item.placeholder"></div>
+                    </ng-template>
+
+                    <!-- Hover overlay -->
+                    <div class="card-overlay">
+                        <div class="overlay-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <ng-container *ngIf="item.type === 'video'">
+                                    <polygon points="5 3 19 12 5 21 5 3" />
+                                </ng-container>
+                                <ng-container *ngIf="item.type !== 'video'">
+                                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                                </ng-container>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Category tag -->
+                    <div class="card-tag" [style.--tag-color]="getCategoryColor(item.category)">
+                        {{ getCategoryLabel(item.category) }}
+                    </div>
+                </div>
+
+                <!-- Card footer -->
+                <div class="card-footer">
+                    <div class="card-info">
+                        <h3 class="card-title">{{ item.title }}</h3>
+                        <p class="card-location" *ngIf="item.location">
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            {{ item.location }}
+                        </p>
+                    </div>
+                    <!-- Client feedback badge -->
+                    <div class="card-rating" *ngIf="item.feedback">
+                        <div class="star-row">
+                            <svg *ngFor="let s of [1,2,3,4,5]" width="11" height="11" viewBox="0 0 24 24"
+                                [attr.fill]="s <= item.feedback!.rating ? '#F59E0B' : 'none'" stroke="#F59E0B"
+                                stroke-width="2">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Client feedback ribbon (shows on hover) -->
+                <div class="card-feedback" *ngIf="item.feedback">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg>
+                    <p class="feedback-text">"{{ item.feedback.text }}"</p>
+                    <span class="feedback-author">— {{ item.feedback.author }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empty state -->
+        <div class="empty-state" *ngIf="filteredItems.length === 0">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="1" />
+                <path d="M3 9h18M9 3v18" />
+            </svg>
+            <p>No projects in this category yet.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="gallery-cta gsap-reveal">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h3 class="cta-heading">Want your project here?</h3>
+                <p class="cta-sub">We're taking new signage orders. Tell us what you need.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                <a routerLink="/contact" class="btn-primary-custom btn-lg-custom">Start a Project</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox-backdrop" [class.open]="lightboxOpen" (click)="closeLightbox()">
+    <div class="lightbox-box" (click)="$event.stopPropagation()" *ngIf="activeLightboxItem">
+
+        <!-- Close -->
+        <button class="lb-close" (click)="closeLightbox()" aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+        </button>
+
+        <!-- Prev -->
+        <button class="lb-nav lb-prev" (click)="prevItem()" [disabled]="activeLightboxIndex === 0"
+            aria-label="Previous">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18l-6-6 6-6" />
+            </svg>
+        </button>
+
+        <!-- Media -->
+        <div class="lb-media">
+            <video *ngIf="activeLightboxItem.type === 'video' && activeLightboxItem.src" [src]="activeLightboxItem.src"
+                controls autoplay class="lb-video">
+            </video>
+            <img *ngIf="activeLightboxItem.type !== 'video' && activeLightboxItem.src" [src]="activeLightboxItem.src"
+                [alt]="activeLightboxItem.title" class="lb-img">
+            <!-- Placeholder when no real media -->
+            <div class="lb-placeholder" *ngIf="!activeLightboxItem.src" [innerHTML]="activeLightboxItem.placeholder">
+            </div>
+        </div>
+
+        <!-- Info -->
+        <div class="lb-info">
+            <div class="lb-meta">
+                <span class="lb-tag" [style.--tag-color]="getCategoryColor(activeLightboxItem.category)">
+                    {{ getCategoryLabel(activeLightboxItem.category) }}
+                </span>
+                <span class="lb-location" *ngIf="activeLightboxItem.location">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    {{ activeLightboxItem.location }}
+                </span>
+            </div>
+            <h3 class="lb-title">{{ activeLightboxItem.title }}</h3>
+            <p class="lb-desc" *ngIf="activeLightboxItem.description">{{ activeLightboxItem.description }}</p>
+
+            <!-- Feedback -->
+            <div class="lb-feedback" *ngIf="activeLightboxItem.feedback">
+                <div class="lb-stars">
+                    <svg *ngFor="let s of [1,2,3,4,5]" width="14" height="14" viewBox="0 0 24 24"
+                        [attr.fill]="s <= activeLightboxItem.feedback!.rating ? '#F59E0B' : 'none'" stroke="#F59E0B"
+                        stroke-width="2">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    <span>{{ activeLightboxItem.feedback.rating }}/5</span>
+                </div>
+                <blockquote class="lb-quote">"{{ activeLightboxItem.feedback.text }}"</blockquote>
+                <cite class="lb-author">— {{ activeLightboxItem.feedback.author }}</cite>
+            </div>
+        </div>
+
+        <!-- Counter -->
+        <div class="lb-counter">{{ activeLightboxIndex + 1 }} / {{ filteredItems.length }}</div>
+
+        <!-- Next -->
+        <button class="lb-nav lb-next" (click)="nextItem()"
+            [disabled]="activeLightboxIndex === filteredItems.length - 1" aria-label="Next">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18l6-6-6-6" />
+            </svg>
+        </button>
+    </div>
+</div>

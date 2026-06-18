@@ -1,0 +1,197 @@
+<!-- ===== PAGE HERO ===== -->
+<section class="services-hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-neon-bar"></div>
+    <div class="container">
+        <div class="row align-items-center min-vh-40">
+            <div class="col-lg-8">
+                <p class="section-eyebrow">WHAT WE DO</p>
+                <h1 class="page-headline">Everything Your Brand<br><span class="headline-outline">Needs to Stand
+                        Out</span></h1>
+                <p class="page-subtext">
+                    Six specialised services. All designed, fabricated, and installed in-house —
+                    no outsourcing, no markups, no waiting on third parties.
+                </p>
+            </div>
+            <div class="col-lg-4 d-none d-lg-flex justify-content-end">
+                <div class="hero-stat-cluster">
+                    <div class="hsc-item" *ngFor="let s of heroStats">
+                        <span class="hsc-num">{{ s.number }}</span>
+                        <span class="hsc-label">{{ s.label }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SERVICES GRID ===== -->
+<section class="services-section">
+    <div class="container">
+
+        <!-- Category filter -->
+        <div class="filter-bar gsap-reveal">
+            <button class="filter-btn" *ngFor="let cat of categories" [class.active]="activeCategory === cat.key"
+                (click)="setCategory(cat.key)">
+                {{ cat.label }}
+            </button>
+        </div>
+
+        <!-- Main 5-service grid -->
+        <div class="services-grid">
+            <div class="service-card gsap-card" *ngFor="let s of mainServices"
+                [class.hidden]="activeCategory !== 'all' && s.category !== activeCategory">
+
+                <!-- Top accent line animated on hover -->
+                <div class="card-accent-line"></div>
+
+                <div class="card-header">
+                    <div class="card-icon-wrap">
+                        <div class="card-icon" [innerHTML]="s.svgIcon"></div>
+                    </div>
+                    <span class="card-category-tag">{{ s.categoryLabel }}</span>
+                </div>
+
+                <h3 class="card-title">{{ s.title }}</h3>
+                <p class="card-desc">{{ s.description }}</p>
+
+                <!-- Features list -->
+                <ul class="card-features">
+                    <li *ngFor="let f of s.features">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="3"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        {{ f }}
+                    </li>
+                </ul>
+
+                <!-- Ideal for -->
+                <div class="card-ideal">
+                    <span class="ideal-label">Ideal for:</span>
+                    <span class="ideal-value">{{ s.idealFor }}</span>
+                </div>
+
+                <a routerLink="/contact" class="card-cta">
+                    Get a Quote
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- ── CNC CALLOUT CARD ── -->
+        <div class="cnc-callout gsap-reveal">
+            <div class="cnc-callout-inner">
+                <div class="cnc-left">
+                    <div class="cnc-badge">IN-HOUSE MACHINE SERVICE</div>
+                    <h2 class="cnc-title">CNC & LASER Cutting</h2>
+                    <p class="cnc-desc">
+                        Don't need print or fabrication — just a precise cut?
+                        Bring your own Sunboard, ACP, or Acrylic sheet and we'll cut it
+                        on our CNC & LASER machines to your exact specs. No minimum order.
+                        No full-service contract required.
+                    </p>
+                    <div class="cnc-materials">
+                        <div class="cnc-material" *ngFor="let m of cncMaterials">
+                            <div class="cnc-material-icon" [innerHTML]="m.svgIcon"></div>
+                            <div>
+                                <span class="cnc-material-name">{{ m.name }}</span>
+                                <span class="cnc-material-note">{{ m.note }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cnc-right">
+                    <!-- Animated CNC illustration -->
+                    <div class="cnc-illustration">
+                        <div class="cnc-machine">
+                            <div class="cnc-rail"></div>
+                            <div class="cnc-head">
+                                <div class="cnc-head-body"></div>
+                                <div class="cnc-bit"></div>
+                            </div>
+                        </div>
+                        <div class="cnc-workpiece">
+                            <div class="cnc-cut-line"></div>
+                        </div>
+                        <div class="cnc-sparks">
+                            <span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+                    <a routerLink="/contact" class="btn-primary-custom">
+                        Request CNC Cutting
+                    </a>
+                    <p class="cnc-note">Bring your material, we cut it same day*</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== PROCESS SECTION ===== -->
+<section class="process-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col text-center gsap-reveal">
+                <p class="section-eyebrow">HOW IT WORKS</p>
+                <h2 class="section-headline">From Brief to Installed.<br>Here's the Process.</h2>
+            </div>
+        </div>
+        <div class="process-steps">
+            <div class="process-step gsap-reveal" *ngFor="let step of processSteps; let i = index; let last = last">
+                <div class="step-number">{{ i + 1 | number:'2.0' }}</div>
+                <div class="step-icon" [innerHTML]="step.svgIcon"></div>
+                <h4 class="step-title">{{ step.title }}</h4>
+                <p class="step-desc">{{ step.desc }}</p>
+                <div class="step-connector" *ngIf="!last"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== MATERIALS STRIP ===== -->
+<section class="materials-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-5 gsap-reveal">
+                <p class="section-eyebrow light">MATERIALS WE USE</p>
+                <h2 class="section-headline light">Commercial-Grade Only.<br>No Budget Imports.</h2>
+                <p class="section-body light">
+                    Every material we use is sourced from trusted suppliers.
+                    Commercial-grade flex, UV-resistant inks, 5052 aluminium ACP,
+                    and branded cast acrylic. When your sign lasts 5 years instead of 1,
+                    that's why.
+                </p>
+            </div>
+            <div class="col-lg-7">
+                <div class="materials-grid">
+                    <div class="material-card gsap-reveal" *ngFor="let m of materials">
+                        <div class="material-card-icon" [innerHTML]="m.svgIcon"></div>
+                        <h5 class="material-name">{{ m.name }}</h5>
+                        <p class="material-desc">{{ m.desc }}</p>
+                        <div class="material-spec">{{ m.spec }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA STRIP ===== -->
+<section class="cta-strip gsap-reveal">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h3 class="cta-heading">Not sure which service you need?</h3>
+                <p class="cta-sub">Tell us your use-case. We'll recommend the right format, material, and size.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                <a routerLink="/contact" class="btn-primary-custom btn-lg-custom">Talk to Us</a>
+            </div>
+        </div>
+    </div>
+</section>

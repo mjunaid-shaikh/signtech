@@ -1,0 +1,149 @@
+<footer class="site-footer">
+
+    <!-- Top decorative bar -->
+    <div class="footer-amber-bar"></div>
+
+    <div class="container">
+
+        <!-- Main footer grid -->
+        <div class="footer-grid">
+
+            <!-- Col 1: Brand + about blurb + socials -->
+            <div class="footer-col footer-col--brand">
+                <a routerLink="/" class="footer-brand">
+                    <span class="brand-mark"><span class="brand-mark-inner"></span></span>
+                    <span class="brand-text">SIGN<span class="brand-accent">TECH</span></span>
+                </a>
+                <p class="footer-blurb">
+                    Mumbai's signage specialists. We design, fabricate, and install
+                    banners, hoardings, acrylic signs, and ACP cladding — entirely in-house.
+                </p>
+
+                <!-- Social links -->
+                <div class="footer-socials">
+                    <a [href]="socials.instagram" target="_blank" rel="noopener"
+                        class="social-btn social-btn--instagram" aria-label="Follow on Instagram">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="2" y="2" width="20" height="20" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+                        </svg>
+                        <span>Instagram</span>
+                    </a>
+                    <a [href]="socials.facebook" target="_blank" rel="noopener" class="social-btn social-btn--facebook"
+                        aria-label="Follow on Facebook">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                        </svg>
+                        <span>Facebook</span>
+                    </a>
+                    <a [href]="socials.whatsapp" target="_blank" rel="noopener" class="social-btn social-btn--whatsapp"
+                        aria-label="Message on WhatsApp">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path
+                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                        </svg>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Col 2: Quick links -->
+            <div class="footer-col">
+                <h4 class="footer-col-heading">Quick Links</h4>
+                <ul class="footer-link-list">
+                    <li *ngFor="let link of quickLinks">
+                        <a [routerLink]="link.path">{{ link.label }}</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Services -->
+            <div class="footer-col">
+                <h4 class="footer-col-heading">Services</h4>
+                <ul class="footer-link-list">
+                    <li *ngFor="let s of serviceLinks">
+                        <a routerLink="/services">{{ s }}</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Contact info -->
+            <div class="footer-col footer-col--contact">
+                <h4 class="footer-col-heading">Contact Us</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <span class="contact-icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                        </span>
+                        <a [href]="'tel:' + phone" class="contact-link">{{ phone }}</a>
+                    </li>
+                    <li>
+                        <span class="contact-icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="2" y="4" width="20" height="16" rx="2" />
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            </svg>
+                        </span>
+                        <a [href]="'mailto:' + email" class="contact-link">{{ email }}</a>
+                    </li>
+                    <li>
+                        <span class="contact-icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                        </span>
+                        <span class="contact-text">{{ address }}</span>
+                    </li>
+                    <li>
+                        <span class="contact-icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                        </span>
+                        <span class="contact-text">{{ workingHours }}</span>
+                    </li>
+                </ul>
+
+                <!-- WhatsApp CTA -->
+                <a [href]="socials.whatsapp" target="_blank" rel="noopener" class="footer-whatsapp-cta">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path
+                            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                    </svg>
+                    Chat on WhatsApp
+                </a>
+            </div>
+
+        </div><!-- /footer-grid -->
+
+        <!-- Divider -->
+        <div class="footer-divider"></div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bottom">
+            <p class="footer-copy">
+                © {{ currentYear }} SignTech. All rights reserved.
+                <span class="footer-copy-sep">·</span>
+                Mumbra-Thane, Maharashtra, India
+            </p>
+            <p class="footer-made">
+                SignTech brands since {{ foundedYear }}
+            </p>
+        </div>
+
+    </div><!-- /container -->
+</footer>

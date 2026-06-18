@@ -1,0 +1,15 @@
+// Global layout — keeps content from hiding behind fixed navbar
+
+// Navbar heights (keep in sync with navbar.component.scss)
+$topbar-height: 36px;
+$nav-height: 72px;
+
+.page-main {
+    // Desktop: offset for topbar + navbar
+    padding-top: calc(#{$topbar-height} + #{$nav-height});
+
+    // Mobile/tablet: no topbar shown, just navbar
+    @media (max-width: 991px) {
+        padding-top: $nav-height;
+    }
+}

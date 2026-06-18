@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+    background: #0D0D0D;
+    color: #F5F5F0;
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    margin: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background: #0D0D0D;
+    color: #F0EFE9;
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}

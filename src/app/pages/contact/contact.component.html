@@ -1,0 +1,380 @@
+<!-- ===== PAGE HERO ===== -->
+<section class="contact-hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-neon-bar"></div>
+    <div class="container">
+        <div class="row align-items-center" style="min-height:36vh">
+            <div class="col-lg-7">
+                <p class="section-eyebrow">CONTACT US</p>
+                <h1 class="page-headline">Let's Build<br><span class="headline-outline">Something Big.</span></h1>
+                <p class="page-subtext">
+                    Tell us your requirement — size, location, material, deadline.
+                    We respond within 24 hours with a quote.
+                </p>
+            </div>
+            <div class="col-lg-5 d-none d-lg-flex justify-content-end">
+                <div class="hero-contact-chips">
+                    <a [href]="'tel:' + owner.phone" class="contact-chip">
+                        <div class="chip-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="chip-label">Call us</span>
+                            <span class="chip-value">{{ owner.phone }}</span>
+                        </div>
+                    </a>
+                    <a [href]="owner.whatsapp" target="_blank" rel="noopener" class="contact-chip chip-wa">
+                        <div class="chip-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="chip-label">WhatsApp</span>
+                            <span class="chip-value">Chat now →</span>
+                        </div>
+                    </a>
+                    <a [href]="'mailto:' + owner.email" class="contact-chip">
+                        <div class="chip-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="4" width="20" height="16" rx="2" />
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="chip-label">Email</span>
+                            <span class="chip-value">{{ owner.email }}</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== REVIEWS STRIP ===== -->
+<section class="reviews-section gsap-section">
+    <div class="container">
+        <div class="reviews-header gsap-reveal">
+            <p class="section-eyebrow">CLIENT REVIEWS</p>
+            <h2 class="section-headline">What Our Clients Say</h2>
+            <div class="reviews-aggregate">
+                <div class="agg-stars">
+                    <svg *ngFor="let s of [1,2,3,4,5]" width="18" height="18" viewBox="0 0 24 24" fill="#F59E0B"
+                        stroke="#F59E0B" stroke-width="1.5">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                </div>
+                <span class="agg-score">4.9 / 5</span>
+                <span class="agg-count">from {{ reviews.length }} verified clients</span>
+            </div>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card gsap-card" *ngFor="let r of reviews">
+                <div class="review-card-top">
+                    <div class="review-stars">
+                        <svg *ngFor="let s of [1,2,3,4,5]" width="13" height="13" viewBox="0 0 24 24"
+                            [attr.fill]="s <= r.rating ? '#F59E0B' : 'none'" stroke="#F59E0B" stroke-width="2">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg>
+                    </div>
+                    <span class="review-service-tag">{{ r.service }}</span>
+                </div>
+                <blockquote class="review-text">"{{ r.text }}"</blockquote>
+                <div class="review-author">
+                    <div class="review-avatar">{{ r.name.charAt(0) }}</div>
+                    <div>
+                        <span class="review-name">{{ r.name }}</span>
+                        <span class="review-location">{{ r.location }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== MAIN CONTACT SECTION ===== -->
+<section class="contact-main">
+    <div class="container">
+        <div class="row g-5">
+
+            <!-- LEFT: Owner info + details -->
+            <div class="col-lg-5">
+
+                <!-- Owner card -->
+                <div class="owner-card gsap-reveal">
+                    <div class="owner-photo-wrap">
+                        <!-- Replace with: <img src="assets/images/owner.jpg" alt="Owner name" class="owner-photo"> -->
+                        <div class="owner-photo-placeholder">
+                            <!-- <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg> -->
+                            <img src="/assets/image/owner photo/salman.png" alt="Owner"
+                                style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;">
+                        </div>
+                        <div class="owner-badge">
+                            <span class="badge-dot"></span>
+                            Available
+                        </div>
+                    </div>
+                    <div class="owner-info">
+                        <h3 class="owner-name">{{ owner.name }}</h3>
+                        <p class="owner-title">{{ owner.title }}</p>
+                        <p class="owner-exp">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#F59E0B"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            {{ owner.experience }} years in signage
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Contact details -->
+                <div class="contact-details gsap-reveal">
+                    <h4 class="details-heading">Get in Touch</h4>
+                    <ul class="details-list">
+                        <li>
+                            <div class="detail-icon">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="detail-label">Phone</span>
+                                <a [href]="'tel:' + owner.phone" class="detail-value">{{ owner.phone }}</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="detail-icon wa-icon">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="detail-label">WhatsApp</span>
+                                <a [href]="owner.whatsapp" target="_blank" rel="noopener"
+                                    class="detail-value wa-link">Chat directly →</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="detail-icon">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="detail-label">Email</span>
+                                <a [href]="'mailto:' + owner.email" class="detail-value">{{ owner.email }}</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="detail-icon">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="detail-label">Address</span>
+                                <span class="detail-value">{{ owner.address }}</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="detail-icon">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="detail-label">Working Hours</span>
+                                <span class="detail-value">{{ owner.hours }}</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social links -->
+                <div class="contact-socials gsap-reveal">
+                    <a [href]="owner.instagram" target="_blank" rel="noopener" class="social-btn social-btn--ig"
+                        aria-label="Instagram">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+                        </svg>
+                        Instagram
+                    </a>
+                    <a [href]="owner.facebook" target="_blank" rel="noopener" class="social-btn social-btn--fb"
+                        aria-label="Facebook">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                        </svg>
+                        Facebook
+                    </a>
+                    <a [href]="owner.whatsapp" target="_blank" rel="noopener" class="social-btn social-btn--wa"
+                        aria-label="WhatsApp">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                        </svg>
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- RIGHT: Contact form -->
+            <div class="col-lg-7">
+                <div class="contact-form-wrap gsap-reveal">
+                    <h3 class="form-heading">Send Us a Message</h3>
+                    <p class="form-subtext">Fill in the details below — we'll reply within 24 hours with a quote or call
+                        you directly.</p>
+
+                    <!-- Success state -->
+                    <div class="form-success" *ngIf="formSubmitted">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <h4>Message Sent!</h4>
+                        <p>We'll get back to you within 24 hours. For urgent orders, WhatsApp us directly.</p>
+                        <button class="btn-ghost-custom" (click)="resetForm()">Send Another</button>
+                    </div>
+
+                    <!-- Form -->
+                    <form class="contact-form" *ngIf="!formSubmitted" (ngSubmit)="submitForm()" #contactForm="ngForm"
+                        novalidate>
+
+                        <div class="form-row">
+                            <div class="form-group" [class.has-error]="name.invalid && name.touched">
+                                <label for="name">Your Name *</label>
+                                <input type="text" id="name" name="name" placeholder="Rahul Sharma"
+                                    [(ngModel)]="formData.name" #name="ngModel" required minlength="2">
+                                <span class="field-error" *ngIf="name.invalid && name.touched">Please enter your
+                                    name</span>
+                            </div>
+                            <div class="form-group" [class.has-error]="phone.invalid && phone.touched">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210"
+                                    [(ngModel)]="formData.phone" #phone="ngModel" required pattern="[0-9+\s\-]{10,15}">
+                                <span class="field-error" *ngIf="phone.invalid && phone.touched">Enter a valid phone
+                                    number</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" [class.has-error]="email.invalid && email.touched">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="rahul@example.com"
+                                [(ngModel)]="formData.email" #email="ngModel" email>
+                            <span class="field-error" *ngIf="email.invalid && email.touched">Enter a valid email</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Service Required</label>
+                            <div class="select-wrap">
+                                <select id="service" name="service" [(ngModel)]="formData.service">
+                                    <option value="">Select a service…</option>
+                                    <option *ngFor="let s of serviceOptions" [value]="s">{{ s }}</option>
+                                </select>
+                                <svg class="select-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="size">Approximate Size / Quantity</label>
+                            <input type="text" id="size" name="size"
+                                placeholder="e.g. 10×4 ft, qty 5 or 40×12 ft hoarding" [(ngModel)]="formData.size">
+                        </div>
+
+                        <div class="form-group" [class.has-error]="message.invalid && message.touched">
+                            <label for="message">Project Details *</label>
+                            <textarea id="message" name="message" rows="4"
+                                placeholder="Describe your requirement — material, location, deadline, any reference images…"
+                                [(ngModel)]="formData.message" #message="ngModel" required minlength="10"></textarea>
+                            <span class="field-error" *ngIf="message.invalid && message.touched">Please describe your
+                                requirement</span>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary-custom btn-submit" [disabled]="isSubmitting">
+                                <svg *ngIf="!isSubmitting" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <line x1="22" y1="2" x2="11" y2="13" />
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                                </svg>
+                                <span class="spinner" *ngIf="isSubmitting"></span>
+                                {{ isSubmitting ? 'Sending…' : 'Send Message' }}
+                            </button>
+                            <a [href]="owner.whatsapp" target="_blank" rel="noopener" class="btn-ghost-custom">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                                </svg>
+                                WhatsApp Instead
+                            </a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== MAP ===== -->
+<section class="map-section">
+    <div class="container">
+        <div class="map-header gsap-reveal">
+            <p class="section-eyebrow">FIND US</p>
+            <h2 class="section-headline">Visit Our Workshop</h2>
+            <p class="map-subtext">Walk in with your material — we cut it on-site. No appointment needed for CNC cutting
+                orders.</p>
+        </div>
+        <div class="map-wrap gsap-reveal">
+            <!-- Replace src with your actual Google Maps embed URL -->
+            <!-- To get embed URL: maps.google.com → Share → Embed a map → Copy HTML → paste only the src value below -->
+            <iframe class="map-iframe" [src]="mapEmbedUrl" width="100%" height="420" style="border:0;"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                title="SignCraft Workshop Location">
+            </iframe>
+            <a [href]="owner.mapsLink" target="_blank" rel="noopener" class="map-directions-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="3 11 22 2 13 21 11 13 3 11" />
+                </svg>
+                Get Directions
+            </a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,371 @@
+<!-- ===== HERO SECTION ===== -->
+<section class="hero-section" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-neon-bar"></div>
+
+    <div class="container hero-content">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-7 hero-left">
+
+                <p class="hero-eyebrow">
+                    <span class="eyebrow-dot"></span> SIGNAGE SPECIALISTS — MUMBAI
+                </p>
+
+                <h1 class="hero-headline">
+                    WE MAKE YOUR<br>
+                    <span class="headline-outline">BRAND</span><br>
+                    IMPOSSIBLE<br>TO IGNORE
+                </h1>
+
+                <p class="hero-subtext">
+                    From 40-foot highway hoardings to precision-cut 3mm acrylic —
+                    every sign we fabricate in-house is built to stop people and make them look.
+                </p>
+
+                <div class="hero-actions">
+                    <a routerLink="/gallery" class="btn-primary-custom">See Our Work</a>
+                    <a routerLink="/contact" class="btn-ghost-custom">
+                        Get a Quote
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Trust signals -->
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        In-house fabrication
+                    </div>
+                    <div class="trust-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        Design to installation
+                    </div>
+                    <div class="trust-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        2 CNC machines on-site
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero visual — illustrated sign mockup -->
+            <div class="col-lg-5 d-none d-lg-flex justify-content-center">
+                <div class="hero-sign-mockup">
+                    <div class="sign-frame">
+                        <div class="sign-inner">
+                            <div class="sign-led-strip top"></div>
+                            <div class="sign-content">
+                                <div class="sign-logo-text">SIGN<br>TECH</div>
+                                <div class="sign-tagline">STANDS OUT</div>
+                            </div>
+                            <div class="sign-led-strip bottom"></div>
+                        </div>
+                        <div class="sign-mount-pole"></div>
+                        <div class="sign-mount-base"></div>
+                    </div>
+                    <!-- Floating chips around mockup -->
+                    <div class="sign-chip sign-chip--1">Flex Banner</div>
+                    <div class="sign-chip sign-chip--2">LED Hoarding</div>
+                    <div class="sign-chip sign-chip--3">Designing</div>
+                    <div class="sign-chip sign-chip--4">Acrylic Cut</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="hero-stats-bar">
+        <div class="container">
+            <div class="row text-center g-0">
+                <div class="col-6 col-md-3" *ngFor="let stat of stats">
+                    <div class="stat-item">
+                        <span class="stat-number">{{ stat.number }}</span>
+                        <span class="stat-label">{{ stat.label }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ABOUT SECTION ===== -->
+<section class="about-section gsap-section" id="about">
+    <div class="container">
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-5">
+                <div class="about-visual gsap-reveal">
+                    <div class="about-badge">EST. {{ foundedYear }}</div>
+                    <div class="about-img-frame">
+                        <!-- Replace div below with: <img src="assets/images/workshop.jpg" alt="Our Workshop"> -->
+                        <div class="about-img-placeholder">
+                            <!-- Illustrated workshop placeholder -->
+                            <div class="workshop-illustration">
+                                <div class="wi-machine">
+                                    <div class="wi-machine-body"></div>
+                                    <div class="wi-machine-arm"></div>
+                                    <div class="wi-machine-bit"></div>
+                                </div>
+                                <div class="wi-board"></div>
+                                <div class="wi-sparks">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <p class="wi-label">CNC In Action</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-machine-tag">
+                        <span class="machine-dot"></span>
+                        CNC + Acrylic Cutting In-House
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7 gsap-reveal">
+                <p class="section-eyebrow">ABOUT US</p>
+                <h2 class="section-headline">We Don't Just Print.<br>We Build Presence.</h2>
+                <p class="section-body">
+                    Based in Mumbai, Signtech has been turning businesses into landmarks for over
+                    <strong>{{ yearsActive }} years</strong>. Everything is handled in-house — design,
+                    cutting, fabrication, and installation — on our own CNC Sunboard, ACP, and
+                    Acrylic machines. No middlemen. No markup. No delays.
+                </p>
+                <p class="section-body">
+                    Whether you need a 40-foot highway hoarding or a precision-cut 3mm acrylic
+                    nameplate, we manufacture it ourselves and install it ourselves.
+                </p>
+
+                <div class="about-highlights">
+                    <div class="highlight-chip" *ngFor="let h of highlights">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        {{ h.text }}
+                    </div>
+                </div>
+
+                <a routerLink="/services" class="btn-primary-custom mt-4 d-inline-block">Explore Services</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SERVICES PREVIEW ===== -->
+<section class="services-preview-section gsap-section" id="services-preview">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center gsap-reveal">
+                <p class="section-eyebrow">WHAT WE DO</p>
+                <h2 class="section-headline">Every Format. Every Scale.</h2>
+                <p class="section-body mx-auto" style="max-width:520px">
+                    From single shop banners to multi-city hoarding campaigns — we do it all.
+                </p>
+            </div>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card gsap-card" *ngFor="let service of servicesPreview; let i = index"
+                [routerLink]="['/services']">
+                <div class="service-card-icon-wrap">
+                    <div class="service-card-icon">
+                        <img [src]="service.image" [alt]="service.title"
+                            style="width:100%;height:100%;object-fit:cover;border-radius:12px;" />
+                    </div>
+                </div>
+                <h3 class="service-card-title">{{ service.title }}</h3>
+                <p class="service-card-desc">{{ service.description }}</p>
+                <span class="service-card-link">
+                    Know more
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+
+        <div class="text-center mt-5 gsap-reveal">
+            <a routerLink="/services" class="btn-ghost-custom">View All Services</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== MACHINES / EDGE SECTION ===== -->
+<section class="machines-section gsap-section" id="machines">
+    <div class="container">
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6 gsap-reveal">
+                <p class="section-eyebrow light">OUR EDGE</p>
+                <h2 class="section-headline light">In-House Machines.<br>Faster. Sharper. Yours.</h2>
+                <p class="section-body light">
+                    Most sign shops outsource cutting. We don't. Our CNC Sunboard, ACP, and Acrylic
+                    machines run on-site — meaning tighter tolerances, faster turnaround, and zero
+                    quality gap between design and final output.
+                </p>
+                <p class="section-body light">
+                    Need just the cutting? Bring your own material — we'll cut it precisely.
+                    No print order required.
+                </p>
+                <a routerLink="/services" class="btn-primary-custom mt-3 d-inline-block">Cutting Services</a>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="machines-grid">
+                    <div class="machine-card gsap-reveal" *ngFor="let m of machines; let i = index"
+                        [attr.data-index]="i">
+                        <div class="machine-card-icon" [innerHTML]="m.svgIcon"></div>
+                        <div class="machine-card-content">
+                            <h4 class="machine-name">{{ m.name }}</h4>
+                            <p class="machine-desc">{{ m.desc }}</p>
+                        </div>
+                        <div class="machine-number">0{{ i + 1 }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ACRYLIC DEMO ===== -->
+<section class="acrylic-section gsap-section" id="acrylic">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center gsap-reveal">
+                <p class="section-eyebrow">MATERIAL SHOWCASE</p>
+                <h2 class="section-headline">Acrylic. Every Colour.<br>Every Thickness.</h2>
+                <p class="section-body mx-auto" style="max-width:520px">
+                    We stock full-range cast acrylic. Pick your colour and thickness — cut in-house,
+                    same day on most orders.
+                </p>
+            </div>
+        </div>
+
+        <div class="acrylic-demo-wrap gsap-reveal">
+            <!-- Left: swatches -->
+            <div class="acrylic-swatches-wrap">
+                <p class="swatch-section-label">Colour Range</p>
+                <div class="acrylic-swatches">
+                    <div class="swatch-item" *ngFor="let swatch of acrylicSwatches" [style.background]="swatch.hex"
+                        [class.active]="activeSwatch?.name === swatch.name"
+                        (click)="activeSwatch = activeSwatch?.name === swatch.name ? null : swatch"
+                        [title]="swatch.name">
+                        <span class="swatch-check" *ngIf="activeSwatch?.name === swatch.name">
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <p class="swatch-active-name" *ngIf="activeSwatch">{{ activeSwatch.name }}</p>
+                <p class="swatch-active-name muted" *ngIf="!activeSwatch">Click a colour to select</p>
+            </div>
+
+            <!-- Divider -->
+            <div class="acrylic-divider"></div>
+
+            <!-- Right: thickness -->
+            <div class="acrylic-thickness-wrap">
+                <p class="swatch-section-label">Thickness (mm)</p>
+                <div class="thickness-pills">
+                    <button class="thickness-pill" *ngFor="let t of thicknesses"
+                        [class.active]="selectedThickness === t" (click)="selectedThickness = t">
+                        {{ t }}mm
+                    </button>
+                </div>
+                <div class="thickness-detail" *ngIf="selectedThickness">
+                    <div class="thickness-bar-wrap">
+                        <div class="thickness-bar" [style.width.px]="selectedThickness * 14"></div>
+                    </div>
+                    <p class="thickness-note">
+                        <strong>{{ selectedThickness }}mm</strong> — {{ getThicknessNote(selectedThickness) }}
+                    </p>
+                </div>
+                <p class="thickness-note muted" *ngIf="!selectedThickness">Select a thickness to see details</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== RECENT WORK TEASER ===== -->
+<section class="work-teaser-section gsap-section" id="work-teaser">
+    <div class="container">
+        <div class="row align-items-end mb-4">
+            <div class="col-md-8 gsap-reveal">
+                <p class="section-eyebrow">RECENT WORK</p>
+                <h2 class="section-headline">Signs We've Built.<br>Brands We've Lifted.</h2>
+            </div>
+            <div class="col-md-4 text-md-end gsap-reveal">
+                <a routerLink="/gallery" class="btn-ghost-custom">Full Gallery →</a>
+            </div>
+        </div>
+
+        <div class="gallery-teaser-grid">
+            <div class="gallery-teaser-card gsap-card" *ngFor="let item of galleryTeaser; let i = index"
+                [class]="'gallery-teaser-card gallery-teaser-card--' + (i + 1)" [routerLink]="['/gallery']">
+                <div class="gallery-card-visual">
+                    <div class="gallery-card-inner">
+                        <img [src]="item.image" [alt]="item.alt">
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <span class="gallery-card-type">{{ item.type }}</span>
+                    <span class="gallery-card-label">{{ item.label }}</span>
+                </div>
+                <div class="gallery-card-hover">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="why-section gsap-section" id="why">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center gsap-reveal">
+                <p class="section-eyebrow">WHY SIGNTECH</p>
+                <h2 class="section-headline">The Difference Is<br>In The Details</h2>
+            </div>
+        </div>
+        <div class="why-grid">
+            <div class="why-card gsap-reveal" *ngFor="let w of whyUs">
+                <div class="why-card-icon" [innerHTML]="w.svgIcon"></div>
+                <h4 class="why-card-title">{{ w.title }}</h4>
+                <p class="why-card-body">{{ w.body }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA STRIP ===== -->
+<section class="cta-strip gsap-reveal">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h3 class="cta-heading">Have a signage project in mind?</h3>
+                <p class="cta-sub">Tell us what you need — we respond within 24 hours.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                <a routerLink="/contact" class="btn-primary-custom btn-lg-custom">Start a Project</a>
+            </div>
+        </div>
+    </div>
+</section>
