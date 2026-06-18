@@ -32,7 +32,11 @@ export interface FormData {
 })
 export class ContactComponent implements AfterViewInit, OnDestroy {
 
-  constructor(private sanitizer: DomSanitizer) { }
+  mapEmbedUrl: SafeResourceUrl;
+
+  constructor(private sanitizer: DomSanitizer) {
+    this.mapEmbedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.owner.mapEmbed);
+  }
 
   // ── Owner / business details — UPDATE THESE ──────────────────────────────────
   owner = {
@@ -54,9 +58,9 @@ export class ContactComponent implements AfterViewInit, OnDestroy {
   // ─────────────────────────────────────────────────────────────────────────────
 
   // SafeResourceUrl for iframe
-  get mapEmbedUrl(): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.owner.mapEmbed);
-  }
+  // get mapEmbedUrl(): SafeResourceUrl {
+  //   return this.sanitizer.bypassSecurityTrustResourceUrl(this.owner.mapEmbed);
+  // }
 
   // ── Service options ──────────────────────────────────────────────────────────
   serviceOptions = [

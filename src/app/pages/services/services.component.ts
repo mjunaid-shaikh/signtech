@@ -81,6 +81,22 @@ export class ServicesComponent implements AfterViewInit {
       idealFor: 'Shops, events, exhibitions, outdoor promotions',
     },
     {
+      category: 'print',
+      categoryLabel: 'Print & Flex',
+      title: 'Graphic Design',
+      svgIcon: `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><path d="M17 3H7a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4z"/><path d="m3 16 5-5 4 4 3-3 4 4"/></svg>`,
+      description: 'Print-ready artwork created in CorelDraw before every production job. Every banner, hoarding, standee, and acrylic project is designed first — correct bleed, resolution, and colour profiles.',
+      features: [
+        'CorelDraw design for all formats',
+        'Banner, hoarding & standee layouts',
+        'Logo design & brand identity',
+        'Visiting cards & stationery',
+        'Print-ready files — correct bleed & resolution',
+        'Quick turnaround — design before same-day print',
+      ],
+      idealFor: 'Any client needing artwork before print or fabrication',
+    },
+    {
       category: 'signage',
       categoryLabel: 'Outdoor Signage',
       title: 'LED & Backlit Hoardings',

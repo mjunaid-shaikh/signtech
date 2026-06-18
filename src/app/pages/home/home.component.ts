@@ -5,10 +5,10 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 declare const gsap: any;
 
 export interface Stat { number: string; label: string; }
-export interface ServicePreview { icon: string; title: string; description: string; image: string }
+export interface ServicePreview { icon: string; title: string; description: string; image: string; }
 export interface Machine { svgIcon: string; name: string; desc: string; }
 export interface AcrylicSwatch { name: string; hex: string; }
-export interface GalleryTeaser { label: string; type: string; image: string; thumb?: string; alt: string }
+export interface GalleryTeaser { label: string; type: string; image: string; thumb?: string; alt: string; }
 export interface WhyUs { svgIcon: string; title: string; body: string; }
 
 @Component({
@@ -73,6 +73,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       icon: 'cnc', title: 'CNC Cutting Only',
       image: `/assets/image/banners/cnc_cutting.jpg`,
       description: 'Bring your own Sunboard, ACP or Acrylic — we cut it with CNC precision. No print order needed.'
+    },
+    {
+      icon: 'design', title: 'Graphic Design',
+      image: `/assets/image/banners/lollypop.png`,
+      description: 'Print-ready artwork in CorelDraw — banners, hoardings, logos, and visiting cards before production.'
     },
   ];
 
@@ -218,22 +223,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // ── Gallery teaser ───────────────────────────────────────────────────────────
   galleryTeaser: GalleryTeaser[] = [
-    {
-      label: 'Highway Hoarding — Hadapsar', type: 'Outdoor Hoarding',
-      image: `/assets/image/banners/nice world.webp`, alt: 'Outdoor Hoarding'
-    },
-    {
-      label: 'Acrylic 3D Letters — Showroom', type: 'Acrylic Signage',
-      image: `/assets/image/banners/nice world.webp`, alt: 'Acrylic Signage'
-    },
-    {
-      label: 'ACP Shop Fascia — Retail', type: 'ACP Cladding',
-      image: `/assets/image/banners/nice world.webp`, alt: 'ACP Cladding'
-    },
-    {
-      label: 'Flex Banner — Event', type: 'Flex Banner',
-      image: `/assets/image/banners/nice world.webp`, alt: 'Flex Banner'
-    },
+    { label: 'Highway Hoarding — Hadapsar', type: 'Outdoor Hoarding', image: `/assets/image/banners/nice world.webp`, alt: 'Outdoor Hoarding' },
+    { label: 'Acrylic 3D Letters — Showroom', type: 'Acrylic Signage', image: `/assets/image/banners/nice world.webp`, alt: 'Acrylic Signage' },
+    { label: 'ACP Shop Fascia — Retail', type: 'ACP Cladding', image: `/assets/image/banners/nice world.webp`, alt: 'ACP Cladding' },
+    { label: 'Flex Banner — Event', type: 'Flex Banner', image: `/assets/image/banners/nice world.webp`, alt: 'Flex Banner' },
   ];
 
   // ── Why Us ───────────────────────────────────────────────────────────────────
@@ -265,68 +258,13 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       svgIcon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
-      title: '{{ yearsActive }}+ Years Experience',
+      title: '10+ Years Experience',
       body: 'Over a decade of signage in Mumbai — retail, hospitality, corporate, events. We\'ve seen every project type and know what lasts.'
     },
   ];
 
   // ── GSAP ScrollTrigger ───────────────────────────────────────────────────────
   ngOnInit(): void { }
-
-  // ngAfterViewInit(): void {
-  //   if (typeof gsap === 'undefined') return;
-
-  //   const ScrollTrigger = (window as any).ScrollTrigger;
-  //   if (ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
-
-  //   // Hero entrance
-  //   const tl = gsap.timeline({ delay: 0.1 });
-  //   tl.from('.hero-eyebrow', { y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' })
-  //     .from('.hero-headline', { y: 40, opacity: 0, duration: 0.65, ease: 'power3.out' }, '-=0.2')
-  //     .from('.hero-subtext', { y: 24, opacity: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3')
-  //     .from('.hero-actions', { y: 20, opacity: 0, duration: 0.45, ease: 'power2.out' }, '-=0.25')
-  //     .from('.hero-trust', { y: 16, opacity: 0, duration: 0.4, ease: 'power2.out' }, '-=0.2')
-  //     .from('.hero-sign-mockup', { x: 40, opacity: 0, duration: 0.7, ease: 'power3.out' }, '-=0.5');
-
-  //   // Stats counter
-  //   gsap.from('.stat-item', {
-  //     y: 30, opacity: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out',
-  //     scrollTrigger: { trigger: '.hero-stats-bar', start: 'top 90%', once: true }
-  //   });
-
-  //   // Generic reveal for all .gsap-reveal elements
-  //   if (ScrollTrigger) {
-  //     (gsap.utils.toArray('.gsap-reveal') as HTMLElement[]).forEach((el) => {
-  //       gsap.from(el, {
-  //         y: 36, opacity: 0, duration: 0.65, ease: 'power2.out',
-  //         scrollTrigger: { trigger: el, start: 'top 88%', once: true }
-  //       });
-  //     });
-
-  //     // Staggered cards
-  //     (gsap.utils.toArray('.gsap-card') as HTMLElement[]).forEach((container) => {
-  //       const parent = container.closest('.services-grid, .gallery-teaser-grid');
-  //       if (!parent) return;
-  //       gsap.from(parent.querySelectorAll('.gsap-card'), {
-  //         y: 44, opacity: 0, duration: 0.55, stagger: 0.09, ease: 'power2.out',
-  //         scrollTrigger: { trigger: parent, start: 'top 82%', once: true }
-  //       });
-  //     });
-
-  //     // Machine cards stagger
-  //     gsap.from('.machine-card', {
-  //       x: 30, opacity: 0, duration: 0.55, stagger: 0.12, ease: 'power2.out',
-  //       scrollTrigger: { trigger: '.machines-grid', start: 'top 82%', once: true }
-  //     });
-
-  //     // Why cards
-  //     gsap.from('.why-card', {
-  //       y: 30, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out',
-  //       scrollTrigger: { trigger: '.why-grid', start: 'top 82%', once: true }
-  //     });
-  //   }
-  // }
-
 
   ngAfterViewInit(): void {
     if (typeof gsap === 'undefined') return;
