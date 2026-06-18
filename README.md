@@ -1,2 +1,0 @@
-# signtech
-SignTech - Signage industry
