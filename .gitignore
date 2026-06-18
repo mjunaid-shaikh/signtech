@@ -1,0 +1,14 @@
+# git rm -r --cached node_modules
+# git rm -r --cached dist
+# git rm -r --cached .angular
+# git rm -r --cached .vscode
+
+# Angular build and cache
+dist/
+.angular/
+
+# Dependencies
+node_modules/
+
+# Editor settings
+.vscode/
