@@ -1,1 +1,4 @@
-git status
+git rm -r --cached node_modules
+git rm -r --cached dist
+git rm -r --cached .angular
+git rm -r --cached .vscode
