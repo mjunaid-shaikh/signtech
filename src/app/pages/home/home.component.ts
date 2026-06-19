@@ -26,9 +26,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // ── Stats ────────────────────────────────────────────────────────────────────
   stats: Stat[] = [
-    { number: '500+', label: 'Projects Delivered' },
+    { number: '10,000+', label: 'Projects Delivered' },
     { number: `${new Date().getFullYear() - 2015}+`, label: 'Years in Business' },
-    { number: '2', label: 'In-House Machines' },
+    { number: '4', label: 'In-House Machines' },
     { number: '100%', label: 'In-House Fabrication' },
   ];
 
@@ -44,16 +44,16 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // ── Services preview ─────────────────────────────────────────────────────────
   servicesPreview: ServicePreview[] = [
-    {
-      icon: 'flex', title: 'Flex Banners',
-      image: `/assets/image/banners/minara resturant.webp`,
-      description: 'High-resolution digital printing on flex — any size, weather-proof and vibrant for outdoor use.'
-    },
-    {
-      icon: 'hoarding', title: 'LED Hoardings',
-      image: `/assets/image/banners/nice world.webp`,
-      description: 'Backlit and LED-lit hoardings for highways and commercial zones — visible day and night.'
-    },
+    // {
+    //   icon: 'flex', title: 'Flex Banners',
+    //   image: `/assets/image/banners/minara resturant.webp`,
+    //   description: 'High-resolution digital printing on flex — any size, weather-proof and vibrant for outdoor use.'
+    // },
+    // {
+    //   icon: 'hoarding', title: 'LED Hoardings',
+    //   image: `/assets/image/banners/nice world.webp`,
+    //   description: 'Backlit and LED-lit hoardings for highways and commercial zones — visible day and night.'
+    // },
     {
       icon: 'lollipop', title: 'Lollipop Standees',
       image: `/assets/image/banners/lollypop.png`,
@@ -74,11 +74,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       image: `/assets/image/banners/cnc_cutting.jpg`,
       description: 'Bring your own Sunboard, ACP or Acrylic — we cut it with CNC precision. No print order needed.'
     },
-    {
-      icon: 'design', title: 'Graphic Design',
-      image: `/assets/image/banners/lollypop.png`,
-      description: 'Print-ready artwork in CorelDraw — banners, hoardings, logos, and visiting cards before production.'
-    },
+    // {
+    //   icon: 'design', title: 'Graphic Design',
+    //   image: `/assets/image/banners/lollypop.png`,
+    //   description: 'Print-ready artwork in CorelDraw — banners, hoardings, logos, and visiting cards before production.'
+    // },
   ];
 
   // ── Machines ─────────────────────────────────────────────────────────────────
@@ -223,10 +223,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // ── Gallery teaser ───────────────────────────────────────────────────────────
   galleryTeaser: GalleryTeaser[] = [
-    { label: 'Highway Hoarding — Hadapsar', type: 'Outdoor Hoarding', image: `/assets/image/banners/nice world.webp`, alt: 'Outdoor Hoarding' },
+    { label: 'Led Sign board — Restaurant', type: 'Sign Board', image: `/assets/image/banners/nice world.webp`, alt: 'Outdoor Hoarding' },
     { label: 'Acrylic 3D Letters — Showroom', type: 'Acrylic Signage', image: `/assets/image/banners/nice world.webp`, alt: 'Acrylic Signage' },
     { label: 'ACP Shop Fascia — Retail', type: 'ACP Cladding', image: `/assets/image/banners/nice world.webp`, alt: 'ACP Cladding' },
-    { label: 'Flex Banner — Event', type: 'Flex Banner', image: `/assets/image/banners/nice world.webp`, alt: 'Flex Banner' },
+    { label: 'Fabric Board - Outlet', type: 'Fabric Board', image: `/assets/image/banners/nice world.webp`, alt: 'Fabric Board' },
   ];
 
   // ── Why Us ───────────────────────────────────────────────────────────────────
@@ -234,17 +234,17 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       svgIcon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
       title: 'Full In-House Production',
-      body: 'Design, cutting, printing, fabrication and installation — all done by us. No outsourcing means tighter quality control at every step.'
+      body: 'Design, cutting, fabrication and installation — all done by us. No outsourcing means tighter quality control at every step.'
     },
     {
       svgIcon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
       title: 'Fast Turnaround',
-      body: 'Our in-house machines skip the outsourcing queue. Most orders are cut and printed within 24–48 hours.'
+      body: 'Our in-house machines skip the outsourcing queue. Most orders are cut and delivered within 7 days.'
     },
     {
       svgIcon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
       title: 'CNC Precision',
-      body: 'Three dedicated machines — CNC Sunboard, ACP cutter, and Acrylic cutter — delivering tolerances that hand-cutting can\'t match.'
+      body: 'Four dedicated machines — CNC Sunboard, ACP cutter, and Acrylic cutter — delivering tolerances that hand-cutting can\'t match.'
     },
     {
       svgIcon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
@@ -259,7 +259,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     {
       svgIcon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
       title: '10+ Years Experience',
-      body: 'Over a decade of signage in Mumbai — retail, hospitality, corporate, events. We\'ve seen every project type and know what lasts.'
+      body: 'Over a decade of signage in PAN India — retail, hospitality, corporate, events. We\'ve seen every project type and know what lasts.'
     },
   ];
 

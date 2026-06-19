@@ -35,8 +35,15 @@ export class FooterComponent {
   ];
 
   serviceLinks = [
-    'Flex Banners',
-    'LED Hoardings',
+    'Name Plate',
+    'Screen Wall',
+    'Running Design',
+    'Fabric Board',
+    'Slim Board',
+    'Sunboard',
+    'Korean Sheet',
+    'SS Letters',
+    'LED Sign boards',
     'Lollipop Standees',
     'Acrylic Signage',
     'ACP Cladding',
