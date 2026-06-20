@@ -54,7 +54,7 @@
                             stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="20 6 9 17 4 12" />
                         </svg>
-                        2 CNC machines on-site
+                        3 CNC machines on-site
                     </div>
                 </div>
             </div>
@@ -93,6 +93,33 @@
                         <span class="stat-label">{{ stat.label }}</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TRUSTED BRANDS ===== -->
+<section class="brands-section">
+    <div class="brands-header">
+        <span class="brands-label">Trusted by leading brands &amp; organisations</span>
+    </div>
+
+    <!-- Row 1 — scrolls left -->
+    <div class="brands-track-wrap" (mouseenter)="pauseBrands()" (mouseleave)="resumeBrands()">
+        <div class="brands-track brands-track--left" [class.paused]="brandsPaused">
+            <div class="brand-item" *ngFor="let b of brandsRow1Doubled">
+                <!-- <span class="brand-logo-text" *ngIf="!b.logo">{{ b.name }}</span> -->
+                <img *ngIf="b.logo" [src]="b.logo" [alt]="b.name" class="brand-logo-img">
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 2 — scrolls right -->
+    <div class="brands-track-wrap" (mouseenter)="pauseBrands()" (mouseleave)="resumeBrands()">
+        <div class="brands-track brands-track--right" [class.paused]="brandsPaused">
+            <div class="brand-item" *ngFor="let b of brandsRow2Doubled">
+                <!-- <span class="brand-logo-text" *ngIf="!b.logo">{{ b.name }}</span> -->
+                <img *ngIf="b.logo" [src]="b.logo" [alt]="b.name" class="brand-logo-img">
             </div>
         </div>
     </div>

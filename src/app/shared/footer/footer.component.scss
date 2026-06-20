@@ -1,11 +1,393 @@
+// // ── Tokens ────────────────────────────────────────────────────────────────────
+// $black: #0D0D0D;
+// $dark: #141414;
+// $dark-card: #1A1A1A;
+// $dark-border: #2A2A2A;
+// $amber: #F59E0B;
+// $amber-light: #FCD34D;
+// $amber-glow: rgba(245, 158, 11, 0.12);
+// $white: #FFFFFF;
+// $off-white: #F5F5F0;
+// $muted: #777777;
+// $muted-light: #AAAAAA;
+// $green-wa: #25D366;
+
+// // Social brand colours
+// $color-instagram: #E1306C;
+// $color-facebook: #1877F2;
+
+// $font-display: 'Bebas Neue', 'Impact', sans-serif;
+// $font-body: 'Inter', 'Helvetica Neue', sans-serif;
+
+// // ── Footer Shell ──────────────────────────────────────────────────────────────
+// .site-footer {
+//     background: $dark;
+//     padding-top: 0;
+//     font-family: $font-body;
+// }
+
+// .footer-amber-bar {
+//     height: 3px;
+//     background: linear-gradient(90deg, transparent 0%, $amber 35%, $amber-light 65%, transparent 100%);
+//     opacity: 0.8;
+//     margin-bottom: 4rem;
+// }
+
+// // ── Footer Grid ───────────────────────────────────────────────────────────────
+// .footer-grid {
+//     display: grid;
+//     grid-template-columns: 1.8fr 1fr 1fr 1.4fr;
+//     gap: 3rem;
+//     padding-bottom: 3rem;
+
+//     @media (max-width: 1199px) {
+//         grid-template-columns: 1fr 1fr;
+//         gap: 2.5rem 3rem;
+//     }
+
+//     @media (max-width: 575px) {
+//         grid-template-columns: 1fr;
+//         gap: 2rem;
+//     }
+// }
+
+// // ── Brand Column ──────────────────────────────────────────────────────────────
+// .footer-col--brand {
+//     @media (max-width: 1199px) {
+//         grid-column: 1 / -1; // Full width on tablet
+//     }
+
+//     @media (max-width: 575px) {
+//         grid-column: 1;
+//     }
+// }
+
+// .footer-brand {
+//     display: inline-flex;
+//     align-items: center;
+//     gap: 10px;
+//     text-decoration: none;
+//     margin-bottom: 1.1rem;
+
+//     .brand-mark {
+//         width: 32px;
+//         height: 32px;
+//         border: 2px solid $amber;
+//         border-radius: 4px;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         flex-shrink: 0;
+
+//         .brand-mark-inner {
+//             width: 10px;
+//             height: 10px;
+//             background: $amber;
+//             border-radius: 2px;
+//         }
+//     }
+
+//     .brand-text {
+//         font-family: $font-display;
+//         font-size: 1.7rem;
+//         letter-spacing: 0.1em;
+//         color: $white;
+//         line-height: 1;
+//     }
+
+//     .brand-accent {
+//         color: $amber;
+//     }
+// }
+
+// .footer-blurb {
+//     font-size: 0.88rem;
+//     line-height: 1.7;
+//     color: $muted-light;
+//     max-width: 300px;
+//     margin-bottom: 1.5rem;
+
+//     @media (max-width: 1199px) {
+//         max-width: 460px;
+//     }
+// }
+
+// // ── Social Buttons ────────────────────────────────────────────────────────────
+// .footer-socials {
+//     display: flex;
+//     gap: 0.6rem;
+//     flex-wrap: wrap;
+// }
+
+// .social-btn {
+//     display: inline-flex;
+//     align-items: center;
+//     gap: 7px;
+//     padding: 0.45rem 0.9rem;
+//     border-radius: 6px;
+//     border: 1px solid $dark-border;
+//     background: $dark-card;
+//     font-size: 0.8rem;
+//     font-weight: 500;
+//     color: $muted-light;
+//     text-decoration: none;
+//     transition: background 0.22s, border-color 0.22s, color 0.22s, transform 0.15s;
+
+//     svg {
+//         flex-shrink: 0;
+//         transition: transform 0.2s;
+//     }
+
+//     &:hover {
+//         transform: translateY(-2px);
+
+//         svg {
+//             transform: scale(1.1);
+//         }
+//     }
+
+//     // Instagram
+//     &--instagram:hover {
+//         background: rgba(225, 48, 108, 0.1);
+//         border-color: rgba(225, 48, 108, 0.4);
+//         color: $color-instagram;
+//     }
+
+//     // Facebook
+//     &--facebook:hover {
+//         background: rgba(24, 119, 242, 0.1);
+//         border-color: rgba(24, 119, 242, 0.4);
+//         color: $color-facebook;
+//     }
+
+//     // WhatsApp
+//     &--whatsapp {
+//         border-color: rgba(37, 211, 102, 0.2);
+//         color: $green-wa;
+
+//         &:hover {
+//             background: rgba(37, 211, 102, 0.1);
+//             border-color: rgba(37, 211, 102, 0.5);
+//             color: $green-wa;
+//         }
+//     }
+// }
+
+// // ── Column Headings ───────────────────────────────────────────────────────────
+// .footer-col-heading {
+//     font-family: $font-body;
+//     font-size: 0.7rem;
+//     font-weight: 700;
+//     letter-spacing: 0.18em;
+//     text-transform: uppercase;
+//     color: $amber;
+//     margin-bottom: 1.25rem;
+//     position: relative;
+//     padding-bottom: 0.6rem;
+
+//     &::after {
+//         content: '';
+//         position: absolute;
+//         bottom: 0;
+//         left: 0;
+//         width: 24px;
+//         height: 1.5px;
+//         background: $amber;
+//         border-radius: 2px;
+//     }
+// }
+
+// // ── Link Lists ────────────────────────────────────────────────────────────────
+// .footer-link-list {
+//     list-style: none;
+//     padding: 0;
+//     margin: 0;
+
+//     li+li {
+//         margin-top: 0.6rem;
+//     }
+
+//     a {
+//         font-size: 0.88rem;
+//         color: $muted-light;
+//         text-decoration: none;
+//         display: inline-flex;
+//         align-items: center;
+//         gap: 6px;
+//         transition: color 0.2s, gap 0.2s;
+
+//         // Subtle arrow on hover
+//         &::before {
+//             content: '→';
+//             font-size: 0.7rem;
+//             opacity: 0;
+//             transform: translateX(-4px);
+//             transition: opacity 0.2s, transform 0.2s;
+//             color: $amber;
+//         }
+
+//         &:hover {
+//             color: $white;
+//             gap: 10px;
+
+//             &::before {
+//                 opacity: 1;
+//                 transform: translateX(0);
+//             }
+//         }
+//     }
+// }
+
+// // ── Contact Column ────────────────────────────────────────────────────────────
+// .footer-contact-list {
+//     list-style: none;
+//     padding: 0;
+//     margin: 0 0 1.5rem;
+
+//     li {
+//         display: flex;
+//         align-items: flex-start;
+//         gap: 10px;
+//         font-size: 0.87rem;
+//         color: $muted-light;
+//         line-height: 1.5;
+
+//         &+li {
+//             margin-top: 0.85rem;
+//         }
+//     }
+
+//     .contact-icon {
+//         flex-shrink: 0;
+//         width: 22px;
+//         height: 22px;
+//         background: $dark-card;
+//         border: 1px solid $dark-border;
+//         border-radius: 4px;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         color: $amber;
+//         margin-top: 1px;
+//     }
+
+//     .contact-link {
+//         color: $muted-light;
+//         text-decoration: none;
+//         transition: color 0.2s;
+
+//         &:hover {
+//             color: $amber;
+//         }
+//     }
+
+//     .contact-text {
+//         color: $muted-light;
+//     }
+// }
+
+// // WhatsApp CTA button in footer
+// .footer-whatsapp-cta {
+//     display: inline-flex;
+//     align-items: center;
+//     gap: 8px;
+//     background: rgba(37, 211, 102, 0.1);
+//     border: 1.5px solid rgba(37, 211, 102, 0.35);
+//     color: $green-wa;
+//     font-size: 0.82rem;
+//     font-weight: 600;
+//     padding: 0.6rem 1.1rem;
+//     border-radius: 6px;
+//     text-decoration: none;
+//     transition: background 0.2s, border-color 0.2s, transform 0.15s;
+
+//     &:hover {
+//         background: rgba(37, 211, 102, 0.18);
+//         border-color: $green-wa;
+//         transform: translateY(-1px);
+//     }
+// }
+
+// // ── Divider ───────────────────────────────────────────────────────────────────
+// .footer-divider {
+//     height: 1px;
+//     background: $dark-border;
+//     margin-bottom: 1.75rem;
+// }
+
+// // ── Bottom Bar ────────────────────────────────────────────────────────────────
+// .footer-bottom {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     padding-bottom: 2rem;
+//     gap: 1rem;
+//     flex-wrap: wrap;
+// }
+
+// .footer-copy {
+//     font-size: 0.78rem;
+//     color: $muted;
+//     margin: 0;
+
+//     .footer-copy-sep {
+//         margin: 0 0.5rem;
+//         opacity: 0.4;
+//     }
+// }
+
+// .footer-made {
+//     font-size: 0.75rem;
+//     color: $muted;
+//     margin: 0;
+//     letter-spacing: 0.04em;
+
+//     &::before {
+//         content: '⬛ ';
+//         color: $amber;
+//         font-size: 0.6rem;
+//         vertical-align: middle;
+//     }
+// }
+
+// // ── Mobile adjustments ────────────────────────────────────────────────────────
+// @media (max-width: 575px) {
+//     .footer-amber-bar {
+//         margin-bottom: 2.5rem;
+//     }
+
+//     .footer-bottom {
+//         flex-direction: column;
+//         align-items: flex-start;
+//         gap: 0.5rem;
+//     }
+
+//     .social-btn span {
+//         display: none;
+//     }
+
+//     // Icon-only on very small screens
+//     .social-btn {
+//         padding: 0.5rem;
+//     }
+// }
+
+// // ── Reduced motion ────────────────────────────────────────────────────────────
+// @media (prefers-reduced-motion: reduce) {
+
+//     .social-btn,
+//     .footer-link-list a,
+//     .footer-whatsapp-cta {
+//         transition: none;
+//     }
+// }
+
+
 // ── Tokens ────────────────────────────────────────────────────────────────────
 $black: #0D0D0D;
 $dark: #141414;
 $dark-card: #1A1A1A;
 $dark-border: #2A2A2A;
-$amber: #F59E0B;
-$amber-light: #FCD34D;
-$amber-glow: rgba(245, 158, 11, 0.12);
 $white: #FFFFFF;
 $off-white: #F5F5F0;
 $muted: #777777;
@@ -28,7 +410,7 @@ $font-body: 'Inter', 'Helvetica Neue', sans-serif;
 
 .footer-amber-bar {
     height: 3px;
-    background: linear-gradient(90deg, transparent 0%, $amber 35%, $amber-light 65%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, var(--accent) 35%, var(--accent-light) 65%, transparent 100%);
     opacity: 0.8;
     margin-bottom: 4rem;
 }
@@ -72,7 +454,7 @@ $font-body: 'Inter', 'Helvetica Neue', sans-serif;
     .brand-mark {
         width: 32px;
         height: 32px;
-        border: 2px solid $amber;
+        border: 2px solid var(--accent);
         border-radius: 4px;
         display: flex;
         align-items: center;
@@ -82,7 +464,7 @@ $font-body: 'Inter', 'Helvetica Neue', sans-serif;
         .brand-mark-inner {
             width: 10px;
             height: 10px;
-            background: $amber;
+            background: var(--accent);
             border-radius: 2px;
         }
     }
@@ -96,7 +478,7 @@ $font-body: 'Inter', 'Helvetica Neue', sans-serif;
     }
 
     .brand-accent {
-        color: $amber;
+        color: var(--accent);
     }
 }
 
@@ -180,7 +562,7 @@ $font-body: 'Inter', 'Helvetica Neue', sans-serif;
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: $amber;
+    color: var(--accent);
     margin-bottom: 1.25rem;
     position: relative;
     padding-bottom: 0.6rem;
@@ -192,7 +574,7 @@ $font-body: 'Inter', 'Helvetica Neue', sans-serif;
         left: 0;
         width: 24px;
         height: 1.5px;
-        background: $amber;
+        background: var(--accent);
         border-radius: 2px;
     }
 }
@@ -223,7 +605,7 @@ $font-body: 'Inter', 'Helvetica Neue', sans-serif;
             opacity: 0;
             transform: translateX(-4px);
             transition: opacity 0.2s, transform 0.2s;
-            color: $amber;
+            color: var(--accent);
         }
 
         &:hover {
@@ -267,7 +649,7 @@ $font-body: 'Inter', 'Helvetica Neue', sans-serif;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: $amber;
+        color: var(--accent);
         margin-top: 1px;
     }
 
@@ -277,7 +659,7 @@ $font-body: 'Inter', 'Helvetica Neue', sans-serif;
         transition: color 0.2s;
 
         &:hover {
-            color: $amber;
+            color: var(--accent);
         }
     }
 
@@ -344,7 +726,7 @@ $font-body: 'Inter', 'Helvetica Neue', sans-serif;
 
     &::before {
         content: '⬛ ';
-        color: $amber;
+        color: var(--accent);
         font-size: 0.6rem;
         vertical-align: middle;
     }

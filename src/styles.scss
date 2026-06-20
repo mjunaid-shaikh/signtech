@@ -1,22 +1,111 @@
 /* You can add global styles to this file, and also import other style files */
 
-html,
-body {
-    height: 100%;
+// html,
+// body {
+//     height: 100%;
+// }
+
+// body {
+//     margin: 0;
+//     font-family: Roboto, "Helvetica Neue", sans-serif;
+// }
+
+// body {
+//     background: #0D0D0D;
+//     color: #F5F5F0;
+//     font-family: 'Inter', 'Helvetica Neue', sans-serif;
+//     margin: 0;
+// }
+
+// *,
+// *::before,
+// *::after {
+//     box-sizing: border-box;
+// }
+
+// body {
+//     background: #0D0D0D;
+//     color: #F0EFE9;
+//     font-family: 'Inter', 'Helvetica Neue', sans-serif;
+//     margin: 0;
+//     overflow-x: hidden;
+// }
+
+
+// ============================================================
+// SIGNTECH — GLOBAL STYLES
+// ============================================================
+// To change the site accent colour, edit ONE line below.
+// Change the active theme or define your own.
+// ============================================================
+
+// ── AVAILABLE THEMES ─────────────────────────────────────────
+// Uncomment ONE theme at a time:
+
+// 🟠 AMBER / ORANGE — original (signage, energy, warmth)
+// @include theme-amber;
+
+// 🔵 ELECTRIC BLUE — corporate, tech, trust
+// @include theme-blue;
+
+// 🟢 EMERALD GREEN — eco, medical, premium
+// @include theme-green;
+
+// 🔴 CRIMSON RED — bold, retail, urgency
+// @include theme-red;
+
+// ── THEME DEFINITIONS ────────────────────────────────────────
+// Each theme sets 4 custom properties on :root.
+// --accent:       main colour (buttons, highlights, borders)
+// --accent-light: lighter variant (hover states)
+// --accent-dim:   transparent tint (backgrounds, chips)
+// --accent-rgb:   RGB values only — used for rgba() calls
+
+@mixin theme-amber {
+    :root {
+        --accent: #F59E0B;
+        --accent-light: #FCD34D;
+        --accent-dim: rgba(245, 158, 11, 0.12);
+        --accent-glow: rgba(245, 158, 11, 0.18);
+        --accent-rgb: 245, 158, 11;
+    }
 }
 
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+@mixin theme-blue {
+    :root {
+        --accent: #3B82F6;
+        --accent-light: #93C5FD;
+        --accent-dim: rgba(59, 130, 246, 0.12);
+        --accent-glow: rgba(59, 130, 246, 0.18);
+        --accent-rgb: 59, 130, 246;
+    }
 }
 
-body {
-    background: #0D0D0D;
-    color: #F5F5F0;
-    font-family: 'Inter', 'Helvetica Neue', sans-serif;
-    margin: 0;
+@mixin theme-green {
+    :root {
+        --accent: #10B981;
+        --accent-light: #6EE7B7;
+        --accent-dim: rgba(16, 185, 129, 0.12);
+        --accent-glow: rgba(16, 185, 129, 0.18);
+        --accent-rgb: 16, 185, 129;
+    }
 }
 
+@mixin theme-red {
+    :root {
+        --accent: #EF4444;
+        --accent-light: #FCA5A5;
+        --accent-dim: rgba(239, 68, 68, 0.12);
+        --accent-glow: rgba(239, 68, 68, 0.18);
+        --accent-rgb: 239, 68, 68;
+    }
+}
+
+// ── ACTIVE THEME — change this line only ─────────────────────
+// @include theme-amber;
+@include theme-amber;
+
+// ── GLOBAL RESET & BASE ──────────────────────────────────────
 *,
 *::before,
 *::after {
@@ -29,4 +118,14 @@ body {
     font-family: 'Inter', 'Helvetica Neue', sans-serif;
     margin: 0;
     overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+}
+
+img,
+svg {
+    max-width: 100%;
+    display: block;
 }

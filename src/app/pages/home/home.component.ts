@@ -20,11 +20,9 @@ export interface WhyUs { svgIcon: string; title: string; body: string; }
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  // ── Business constants ───────────────────────────────────────────────────────
   foundedYear = 2015;
   get yearsActive(): number { return new Date().getFullYear() - this.foundedYear; }
 
-  // ── Stats ────────────────────────────────────────────────────────────────────
   stats: Stat[] = [
     { number: '10,000+', label: 'Projects Delivered' },
     { number: `${new Date().getFullYear() - 2015}+`, label: 'Years in Business' },
@@ -32,7 +30,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     { number: '100%', label: 'In-House Fabrication' },
   ];
 
-  // ── About highlights ─────────────────────────────────────────────────────────
   highlights = [
     { text: 'CNC Sunboard & ACP Cutting' },
     { text: 'Acrylic Cutting Machine' },
@@ -42,18 +39,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     { text: '24-hr Quote Response' },
   ];
 
-  // ── Services preview ─────────────────────────────────────────────────────────
   servicesPreview: ServicePreview[] = [
-    // {
-    //   icon: 'flex', title: 'Flex Banners',
-    //   image: `/assets/image/banners/minara resturant.webp`,
-    //   description: 'High-resolution digital printing on flex — any size, weather-proof and vibrant for outdoor use.'
-    // },
-    // {
-    //   icon: 'hoarding', title: 'LED Hoardings',
-    //   image: `/assets/image/banners/nice world.webp`,
-    //   description: 'Backlit and LED-lit hoardings for highways and commercial zones — visible day and night.'
-    // },
     {
       icon: 'lollipop', title: 'Lollipop Standees',
       image: `/assets/image/banners/lollypop.png`,
@@ -74,14 +60,44 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       image: `/assets/image/banners/cnc_cutting.jpg`,
       description: 'Bring your own Sunboard, ACP or Acrylic — we cut it with CNC precision. No print order needed.'
     },
-    // {
-    //   icon: 'design', title: 'Graphic Design',
-    //   image: `/assets/image/banners/lollypop.png`,
-    //   description: 'Print-ready artwork in CorelDraw — banners, hoardings, logos, and visiting cards before production.'
-    // },
   ];
 
-  // ── Machines ─────────────────────────────────────────────────────────────────
+  // ── Trusted brands ────────────────────────────────────────────────────────────
+  // logo: optional image path e.g. '/assets/image/brands/client-logo.png'
+  // name: shown as text if no logo, used as alt text if logo present
+  brandsRow1: { name: string; logo?: string }[] = [
+    { name: 'Airtel', logo: '/assets/image/brands logos/airtel.png' },
+    { name: 'Philips', logo: '/assets/image/brands logos/Philips.jpeg' },
+    { name: 'SBI', logo: '/assets/image/brands logos/sbi.png' },
+    { name: 'OYO', logo: '/assets/image/brands logos/oyo.png' },
+    { name: 'Uber', logo: '/assets/image/brands logos/uber2.jpg' },
+    { name: 'JCB', logo: '/assets/image/brands logos/jcb.png' },
+    { name: 'L&T', logo: '/assets/image/brands logos/l&t.png' },
+    { name: 'Paytm', logo: '/assets/image/brands logos/Paytm.png' },
+    { name: 'Okaya', logo: '/assets/image/brands logos/okaya.png' },
+    { name: 'Tesa', logo: '/assets/image/brands logos/tesa.jpg' },
+  ];
+
+  brandsRow2: { name: string; logo?: string }[] = [
+    { name: 'Nikon', logo: '/assets/image/brands logos/Nikon.png' },
+    { name: 'CEAT', logo: '/assets/image/brands logos/ceat.png' },
+    { name: 'Maruti Suzuki', logo: '/assets/image/brands logos/Suzuki.png' },
+    { name: 'Jeep', logo: '/assets/image/brands logos/jeep.png' },
+    { name: 'Vivo', logo: '/assets/image/brands logos/vivo.png' },
+    { name: 'Makita', logo: '/assets/image/brands logos/makita.png' },
+    { name: '7th Heaven', logo: '/assets/image/brands logos/7th heaven.jpg' },
+    { name: 'DBS', logo: '/assets/image/brands logos/DBS.png' },
+    { name: 'Tea Post', logo: '/assets/image/brands logos/teapost.png' },
+    { name: 'Motorola', logo: '/assets/image/brands logos/moto.svg' },
+  ];
+
+  get brandsRow1Doubled() { return [...this.brandsRow1, ...this.brandsRow1]; }
+  get brandsRow2Doubled() { return [...this.brandsRow2, ...this.brandsRow2]; }
+
+  brandsPaused = false;
+  pauseBrands() { this.brandsPaused = true; }
+  resumeBrands() { this.brandsPaused = false; }
+
   machines: Machine[] = [
     {
       svgIcon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M12 12v5M9.5 14.5l2.5-2.5 2.5 2.5"/></svg>`,
@@ -100,7 +116,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     },
   ];
 
-  // ── Acrylic swatches ─────────────────────────────────────────────────────────
   acrylicSwatches: AcrylicSwatch[] = [
     { name: 'Crystal Clear', hex: '#C8ECF5' },
     { name: 'Gloss White', hex: '#F0F0F0' },
@@ -221,7 +236,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     return notes[t] ?? 'Available on request.';
   }
 
-  // ── Gallery teaser ───────────────────────────────────────────────────────────
   galleryTeaser: GalleryTeaser[] = [
     { label: 'Led Sign board — Restaurant', type: 'Sign Board', image: `/assets/image/banners/nice world.webp`, alt: 'Outdoor Hoarding' },
     { label: 'Acrylic 3D Letters — Showroom', type: 'Acrylic Signage', image: `/assets/image/banners/nice world.webp`, alt: 'Acrylic Signage' },
@@ -229,7 +243,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     { label: 'Fabric Board - Outlet', type: 'Fabric Board', image: `/assets/image/banners/nice world.webp`, alt: 'Fabric Board' },
   ];
 
-  // ── Why Us ───────────────────────────────────────────────────────────────────
   whyUs: WhyUs[] = [
     {
       svgIcon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
@@ -263,7 +276,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     },
   ];
 
-  // ── GSAP ScrollTrigger ───────────────────────────────────────────────────────
   ngOnInit(): void { }
 
   ngAfterViewInit(): void {
@@ -272,7 +284,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     const ScrollTrigger = (window as any).ScrollTrigger;
     if (ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
 
-    // Hero entrance
     const tl = gsap.timeline({ delay: 0.1 });
     tl.from('.hero-eyebrow', { y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' })
       .from('.hero-headline', { y: 40, opacity: 0, duration: 0.65, ease: 'power3.out' }, '-=0.2')
@@ -281,13 +292,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       .from('.hero-trust', { y: 16, opacity: 0, duration: 0.4, ease: 'power2.out' }, '-=0.2')
       .from('.hero-sign-mockup', { x: 40, opacity: 0, duration: 0.7, ease: 'power3.out' }, '-=0.5');
 
-    // Stats counter
     gsap.from('.stat-item', {
       y: 30, opacity: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out',
       scrollTrigger: { trigger: '.hero-stats-bar', start: 'top 90%', once: true }
     });
 
-    // Generic reveal for all .gsap-reveal elements
     if (ScrollTrigger) {
       (gsap.utils.toArray('.gsap-reveal') as HTMLElement[]).forEach((el) => {
         gsap.from(el, {
@@ -296,7 +305,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         });
       });
 
-      // Staggered cards — animate each grid once, not once per card
       document.querySelectorAll('.services-grid, .gallery-teaser-grid').forEach((grid) => {
         gsap.from(grid.querySelectorAll('.gsap-card'), {
           y: 44, opacity: 0, duration: 0.55, stagger: 0.09, ease: 'power2.out',
@@ -304,13 +312,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         });
       });
 
-      // Machine cards stagger
       gsap.from('.machine-card', {
         x: 30, opacity: 0, duration: 0.55, stagger: 0.12, ease: 'power2.out',
         scrollTrigger: { trigger: '.machines-grid', start: 'top 82%', once: true }
       });
 
-      // Why cards
       gsap.from('.why-card', {
         y: 30, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out',
         scrollTrigger: { trigger: '.why-grid', start: 'top 82%', once: true }

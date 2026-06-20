@@ -58,73 +58,79 @@ export class ServicesComponent implements AfterViewInit {
 
   // ── Hero stats ───────────────────────────────────────────────────────────────
   heroStats = [
-    { number: '500+', label: 'Projects Done' },
+    { number: '10000+', label: 'Projects Done' },
     { number: '11+', label: 'Years Experience' },
-    { number: '2', label: 'CNC Machines' },
+    { number: '4', label: 'Inhouse Machines' },
   ];
 
   // ── Main 5 services (CNC is separate callout) ────────────────────────────────
   mainServices: Service[] = [
     {
-      category: 'print',
-      categoryLabel: 'Print & Flex',
-      title: 'Flex Banners',
+      category: 'signage',
+      categoryLabel: 'Name Signage',
+      title: 'Name Plate',
       svgIcon: `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="11" rx="1"/><path d="M3 8h18M8 16v3M16 16v3"/></svg>`,
-      description: 'High-resolution digital printing on commercial-grade flex material. UV-resistant inks, vibrant colour output, and any size from shop banners to full building wraps.',
+      description:
+        'Custom name plates designed for homes, offices, cabins, shops, and businesses. Available in acrylic, stainless steel, brass, and wooden finishes.',
       features: [
-        'Any custom size — no standard limits',
-        'UV-resistant, weather-proof print',
-        'Star flex & backlit flex options',
-        'Hemmed edges with eyelets',
-        'Same-day print on urgent orders',
+        'Custom sizes and designs',
+        'Acrylic, SS, brass, and wooden options',
+        'Laser-cut lettering',
+        'Indoor and outdoor applications',
+        'Premium finishing options',
+        'Easy wall mounting'
       ],
-      idealFor: 'Shops, events, exhibitions, outdoor promotions',
+      idealFor: 'Homes, offices, cabins, doctors, advocates, and commercial establishments'
     },
     {
-      category: 'print',
-      categoryLabel: 'Print & Flex',
-      title: 'Graphic Design',
+      category: 'interior',
+      categoryLabel: 'Interior Decoration',
+      title: 'Screen Wall',
       svgIcon: `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><path d="M17 3H7a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4z"/><path d="m3 16 5-5 4 4 3-3 4 4"/></svg>`,
-      description: 'Print-ready artwork created in CorelDraw before every production job. Every banner, hoarding, standee, and acrylic project is designed first — correct bleed, resolution, and colour profiles.',
+      description:
+        'Decorative screen walls and partition panels manufactured using CNC cutting to enhance interior and exterior spaces.',
       features: [
-        'CorelDraw design for all formats',
-        'Banner, hoarding & standee layouts',
-        'Logo design & brand identity',
-        'Visiting cards & stationery',
-        'Print-ready files — correct bleed & resolution',
-        'Quick turnaround — design before same-day print',
+        'Custom CNC-cut designs',
+        'Decorative partition solutions',
+        'Available in MDF, ACP, and metal',
+        'Modern and traditional patterns',
+        'Durable finishes',
+        'Indoor and outdoor usage'
       ],
-      idealFor: 'Any client needing artwork before print or fabrication',
+      idealFor: 'Homes, offices, restaurants, hotels, and commercial interiors'
     },
     {
-      category: 'signage',
-      categoryLabel: 'Outdoor Signage',
-      title: 'LED & Backlit Hoardings',
+      category: 'cladding',
+      categoryLabel: 'Exterior Cladding',
+      title: 'ACP Cladding',
       svgIcon: `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="13" rx="1"/><path d="M12 16v4M8 20h8"/><circle cx="7" cy="9" r="1" fill="currentColor"/><circle cx="12" cy="9" r="1" fill="currentColor"/><circle cx="17" cy="9" r="1" fill="currentColor"/></svg>`,
-      description: 'Illuminated hoardings built for highways, rooftops, and commercial frontages. Steel frame, backlit flex or LED module face — visible day and night at any scale.',
+      description:
+        'ACP cladding provides a modern and attractive exterior finish for commercial buildings and shop front elevations.',
       features: [
-        'Steel / aluminium frame fabrication',
-        'LED strip or module illumination',
-        'Backlit & front-lit configurations',
-        'Rooftop, wall-mount & pole mount',
-        'Site survey + professional installation',
+        'Weather-resistant material',
+        'Premium building appearance',
+        'Available in multiple shades',
+        'Long-lasting finish',
+        'Easy maintenance',
+        'Professional installation'
       ],
-      idealFor: 'Highways, malls, commercial buildings, petrol stations',
+      idealFor: 'Shops, showrooms, offices, commercial buildings, and facades'
     },
     {
-      category: 'signage',
-      categoryLabel: 'Outdoor Signage',
-      title: 'Lollipop Standees',
+      category: 'fabrication',
+      categoryLabel: 'CNC Fabrication',
+      title: 'CNC Cutting',
       svgIcon: `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="14" rx="1"/><path d="M12 17v4M9 21h6"/></svg>`,
-      description: 'Freestanding outdoor standees with aluminium or GI pipe frames, double-sided flex face, and a concrete-anchor base. Built for pavements, parking lots, and high-footfall zones.',
+      description: 'Precision CNC cutting services for acrylic, MDF, ACP, wood, and metal materials with accurate finishing.',
       features: [
-        'Double-sided display',
-        'Aluminium or GI pipe frame',
-        'Ground anchor or base plate',
-        'Flex + backlit variants',
-        'Sizes from 2×3 ft to 4×6 ft',
+        'High-precision cutting',
+        'Complex pattern designs',
+        'Smooth finishing',
+        'Custom dimensions',
+        'Multiple material support',
+        'Fast production turnaround'
       ],
-      idealFor: 'Retail frontage, road diversions, petrol pumps, real estate',
+      idealFor: 'Interior designers, signage projects, furniture makers, and decorators'
     },
     {
       category: 'fabrication',
@@ -142,19 +148,100 @@ export class ServicesComponent implements AfterViewInit {
       idealFor: 'Offices, clinics, showrooms, hotels, corporate lobbies',
     },
     {
-      category: 'fabrication',
-      categoryLabel: 'Fabrication',
-      title: 'ACP Cladding & Fascia',
+      category: 'signage',
+      categoryLabel: 'LED Signage',
+      title: 'Running Design',
       svgIcon: `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>`,
-      description: 'Aluminium Composite Panel fabrication for shop fascias, building cladding, and interior wall branding. Clean, flat, corporate finish with no warping over time.',
+      description: 'LED running displays provide dynamic scrolling text and promotional messages for businesses and public information displays.',
       features: [
-        '4mm standard ACP — PVDF & polyester coat',
-        'Dibond & Alucobond available',
-        'CNC-routed for text and shapes',
-        'Powder-coated frames included',
-        'Interior + exterior grade',
+        'Scrolling LED messages',
+        'Custom text programming',
+        'High visibility display',
+        'Energy-efficient LEDs',
+        'Indoor and outdoor options',
+        'Remote content updates'
       ],
-      idealFor: 'Retail chains, showrooms, corporate offices, banks',
+      idealFor: 'Shops, pharmacies, hospitals, schools, and commercial establishments'
+    },
+    {
+      category: 'signage',
+      categoryLabel: 'Fabric Signage',
+      title: 'Fabric Board',
+      svgIcon: `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>`,
+      description: 'Fabric light boxes deliver premium illuminated branding with vibrant graphics and uniform LED lighting.',
+      features: [
+        'Backlit fabric graphics',
+        'Bright LED illumination',
+        'Wrinkle-free appearance',
+        'Easy graphic replacement',
+        'Lightweight aluminum frame',
+        'Modern premium look'
+      ],
+      idealFor: 'Showrooms, malls, retail stores, exhibitions, and corporate branding'
+    },
+    {
+      category: 'signage',
+      categoryLabel: 'LED Signage',
+      title: 'Slim Board',
+      svgIcon: `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>`,
+      description: 'Slim boards are ultra-thin illuminated signboards designed to provide elegant and attractive branding solutions.',
+      features: [
+        'Slim profile design',
+        'LED illumination',
+        'Low power consumption',
+        'Modern appearance',
+        'Lightweight construction',
+        'Easy installation'
+      ],
+      idealFor: 'Retail shops, offices, clinics, salons, and indoor branding'
+    },
+    {
+      category: 'letters',
+      categoryLabel: 'Metal Letter Signage',
+      title: 'SS Letters',
+      svgIcon: `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>`,
+      description: 'Stainless steel letters offer premium and durable signage solutions with elegant metallic finishes.',
+      features: [
+        'Mirror and matte finishes',
+        'Rust-resistant material',
+        'Available with LED lighting',
+        'Premium appearance',
+        'Long-lasting durability',
+        'Custom fonts and sizes'
+      ],
+      idealFor: 'Hotels, offices, showrooms, hospitals, and luxury brands'
+    },
+    {
+      category: 'letters',
+      categoryLabel: 'Acrylic Letter Signage',
+      title: 'Die Letters',
+      svgIcon: `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>`,
+      description: 'Die-cut letters are precision-cut acrylic or PVC letters used for attractive and professional branding.',
+      features: [
+        'Custom fonts and designs',
+        'Available in acrylic and PVC',
+        'Glossy and matte finishes',
+        'Lightweight construction',
+        'Indoor and outdoor use',
+        'Easy installation'
+      ],
+      idealFor: 'Retail shops, offices, schools, clinics, and commercial signage'
+    },
+    {
+      category: 'signage',
+      categoryLabel: 'Glow Sign Board',
+      title: 'Clison Board',
+      svgIcon: `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>`,
+      description: 'Clison boards are illuminated signboards that provide excellent visibility during both day and night.',
+      features: [
+        'LED illumination',
+        'Weather-resistant construction',
+        'Bright night visibility',
+        'Custom graphics and branding',
+        'Energy-efficient lighting',
+        'Durable outdoor performance'
+      ],
+      idealFor: 'Shops, restaurants, medical stores, showrooms, and commercial businesses'
     },
   ];
 
@@ -182,7 +269,7 @@ export class ServicesComponent implements AfterViewInit {
     {
       title: 'Brief & Quote',
       desc: 'Share your requirement — size, location, material, deadline. We respond with a quote within 24 hours.',
-      svgIcon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
+      svgIcon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>`,
     },
     {
       title: 'Design Proof',

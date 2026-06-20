@@ -99,7 +99,7 @@ export class ContactComponent implements AfterViewInit, OnDestroy {
   reviews: Review[] = [
     {
       name: 'Rahul Mehta', location: 'Koregaon Park, Mumbai',
-      service: 'Flex Banner', rating: 5,
+      service: 'Name Plate', rating: 5,
       text: 'Got 20 banners printed overnight for our grand opening. Print quality was sharp and the edges were perfectly hemmed. Would not go anywhere else.',
     },
     {

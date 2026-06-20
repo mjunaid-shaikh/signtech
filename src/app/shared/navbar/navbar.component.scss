@@ -1,10 +1,483 @@
+// // ── Tokens (mirror home tokens — move to shared _variables.scss eventually) ──
+// $black: #0D0D0D;
+// $dark: #141414;
+// $dark-card: #1A1A1A;
+// $dark-border: #2A2A2A;
+// $amber: #F59E0B;
+// $amber-light: #FCD34D;
+// $white: #FFFFFF;
+// $off-white: #F5F5F0;
+// $muted: #888888;
+// $muted-light: #AAAAAA;
+// $green-wa: #25D366;
+
+// $font-display: 'Bebas Neue', 'Impact', sans-serif;
+// $font-body: 'Inter', 'Helvetica Neue', sans-serif;
+
+// $nav-height-top: 72px; // height before scroll
+// $nav-height-scrolled: 56px; // height after scroll
+// $topbar-height: 36px;
+
+// // ── Topbar ────────────────────────────────────────────────────────────────────
+// .topbar {
+//     background: $black;
+//     border-bottom: 1px solid $dark-border;
+//     height: $topbar-height;
+
+//     .topbar-inner {
+//         display: flex;
+//         align-items: center;
+//         justify-content: space-between;
+//         height: 100%;
+//     }
+
+//     .topbar-link {
+//         display: inline-flex;
+//         align-items: center;
+//         gap: 6px;
+//         font-size: 0.75rem;
+//         color: $muted-light;
+//         text-decoration: none;
+//         letter-spacing: 0.02em;
+//         transition: color 0.2s;
+
+//         &+.topbar-link {
+//             margin-left: 1.25rem;
+//         }
+
+//         svg {
+//             flex-shrink: 0;
+//         }
+
+//         &:hover {
+//             color: $amber;
+//         }
+//     }
+
+//     .topbar-right {
+//         display: flex;
+//         align-items: center;
+//         gap: 0.75rem;
+//     }
+
+//     .topbar-social {
+//         display: inline-flex;
+//         align-items: center;
+//         justify-content: center;
+//         color: $muted;
+//         text-decoration: none;
+//         width: 28px;
+//         height: 28px;
+//         border-radius: 4px;
+//         transition: color 0.2s, background 0.2s;
+
+//         &:hover {
+//             color: $white;
+//             background: $dark-card;
+//         }
+//     }
+
+//     .topbar-whatsapp {
+//         display: inline-flex;
+//         align-items: center;
+//         gap: 6px;
+//         width: auto;
+//         padding: 0 0.6rem;
+//         font-size: 0.73rem;
+//         font-weight: 600;
+//         color: $green-wa;
+//         border: 1px solid rgba(37, 211, 102, 0.25);
+//         border-radius: 100px;
+//         letter-spacing: 0.03em;
+
+//         &:hover {
+//             background: rgba(37, 211, 102, 0.08);
+//             color: $green-wa;
+//         }
+//     }
+// }
+
+// // ── Main Nav ──────────────────────────────────────────────────────────────────
+// .main-nav {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     z-index: 1050;
+//     height: $nav-height-top;
+//     display: flex;
+//     align-items: center;
+//     background: transparent;
+//     transition: background 0.3s ease, height 0.3s ease, box-shadow 0.3s ease;
+
+//     // When topbar is shown, offset the nav
+//     @media (min-width: 992px) {
+//         top: $topbar-height;
+//     }
+
+//     &.scrolled {
+//         height: $nav-height-scrolled;
+//         background: rgba(13, 13, 13, 0.96);
+//         backdrop-filter: blur(12px);
+//         -webkit-backdrop-filter: blur(12px);
+//         box-shadow: 0 1px 0 $dark-border;
+
+//         @media (min-width: 992px) {
+//             top: 0;
+//         }
+
+//         // topbar scrolls away
+//     }
+
+//     // Amber top rule — always visible as identity element
+//     &::after {
+//         content: '';
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         right: 0;
+//         height: 2px;
+//         background: linear-gradient(90deg, transparent 0%, $amber 35%, $amber-light 65%, transparent 100%);
+//         opacity: 0.85;
+//         pointer-events: none;
+//     }
+// }
+
+// .nav-inner {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     width: 100%;
+// }
+
+// // ── Brand ─────────────────────────────────────────────────────────────────────
+// .nav-brand {
+//     display: flex;
+//     align-items: center;
+//     gap: 10px;
+//     text-decoration: none;
+//     flex-shrink: 0;
+
+//     .brand-mark {
+//         width: 30px;
+//         height: 30px;
+//         border: 2px solid $amber;
+//         border-radius: 4px;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         transition: background 0.2s;
+
+//         .brand-mark-inner {
+//             width: 10px;
+//             height: 10px;
+//             background: $amber;
+//             border-radius: 2px;
+//         }
+//     }
+
+//     .brand-text {
+//         font-family: $font-display;
+//         font-size: 1.55rem;
+//         letter-spacing: 0.1em;
+//         color: $white;
+//         line-height: 1;
+//     }
+
+//     .brand-accent {
+//         color: $amber;
+//     }
+
+//     &:hover .brand-mark {
+//         background: rgba(245, 158, 11, 0.12);
+//     }
+// }
+
+// // ── Desktop Nav Links ─────────────────────────────────────────────────────────
+// .nav-links {
+//     display: flex;
+//     align-items: center;
+//     list-style: none;
+//     margin: 0;
+//     padding: 0;
+//     gap: 0.25rem;
+
+//     .nav-link-item {
+//         display: block;
+//         padding: 0.5rem 0.9rem;
+//         font-size: 0.82rem;
+//         font-weight: 500;
+//         letter-spacing: 0.07em;
+//         text-transform: uppercase;
+//         color: rgba(255, 255, 255, 0.72);
+//         text-decoration: none;
+//         border-radius: 4px;
+//         transition: color 0.2s, background 0.2s;
+//         position: relative;
+
+//         // Underline indicator
+//         &::after {
+//             content: '';
+//             position: absolute;
+//             bottom: 4px;
+//             left: 0.9rem;
+//             right: 0.9rem;
+//             height: 1.5px;
+//             background: $amber;
+//             transform: scaleX(0);
+//             transition: transform 0.22s ease;
+//             transform-origin: left;
+//         }
+
+//         &:hover {
+//             color: $white;
+//             background: rgba(255, 255, 255, 0.05);
+//         }
+
+//         &.active {
+//             color: $white;
+
+//             &::after {
+//                 transform: scaleX(1);
+//             }
+//         }
+//     }
+// }
+
+// // ── Desktop CTA area ──────────────────────────────────────────────────────────
+// .nav-whatsapp-btn {
+//     display: inline-flex;
+//     align-items: center;
+//     justify-content: center;
+//     width: 36px;
+//     height: 36px;
+//     border: 1.5px solid rgba(37, 211, 102, 0.35);
+//     border-radius: 50%;
+//     color: $green-wa;
+//     text-decoration: none;
+//     transition: background 0.2s, border-color 0.2s;
+
+//     &:hover {
+//         background: rgba(37, 211, 102, 0.1);
+//         border-color: $green-wa;
+//     }
+// }
+
+// .btn-nav-quote {
+//     display: inline-block;
+//     background: $amber;
+//     color: $black;
+//     font-family: $font-body;
+//     font-size: 0.8rem;
+//     font-weight: 700;
+//     letter-spacing: 0.06em;
+//     text-transform: uppercase;
+//     padding: 0.55rem 1.25rem;
+//     border-radius: 4px;
+//     text-decoration: none;
+//     border: 2px solid $amber;
+//     transition: background 0.2s, color 0.2s, transform 0.15s;
+
+//     &:hover {
+//         background: $amber-light;
+//         border-color: $amber-light;
+//         color: $black;
+//         transform: translateY(-1px);
+//     }
+// }
+
+// // ── Hamburger ─────────────────────────────────────────────────────────────────
+// .hamburger {
+//     background: none;
+//     border: 1.5px solid $dark-border;
+//     border-radius: 5px;
+//     padding: 8px 10px;
+//     cursor: pointer;
+//     display: flex;
+//     flex-direction: column;
+//     gap: 5px;
+//     transition: border-color 0.2s;
+
+//     &:hover {
+//         border-color: $amber;
+//     }
+
+//     &:focus-visible {
+//         outline: 2px solid $amber;
+//         outline-offset: 2px;
+//     }
+
+//     .ham-line {
+//         display: block;
+//         width: 20px;
+//         height: 1.5px;
+//         background: $off-white;
+//         border-radius: 2px;
+//         transition: transform 0.25s ease, opacity 0.2s ease, width 0.2s ease;
+//         transform-origin: center;
+//     }
+
+//     &.is-open {
+//         border-color: $amber;
+
+//         .ham-line:nth-child(1) {
+//             transform: translateY(6.5px) rotate(45deg);
+//         }
+
+//         .ham-line:nth-child(2) {
+//             opacity: 0;
+//             width: 0;
+//         }
+
+//         .ham-line:nth-child(3) {
+//             transform: translateY(-6.5px) rotate(-45deg);
+//         }
+//     }
+// }
+
+// // ── Mobile Menu ───────────────────────────────────────────────────────────────
+// .mobile-menu {
+//     position: fixed;
+//     top: $nav-height-top; // default: before scroll
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     z-index: 1049; // just below .main-nav (1050) but above everything else
+//     background: rgba(13, 13, 13, 0.98);
+//     backdrop-filter: blur(16px);
+//     -webkit-backdrop-filter: blur(16px);
+//     overflow-y: auto;
+//     transform: translateY(-8px);
+//     opacity: 0;
+//     visibility: hidden;
+//     transition: transform 0.28s ease, opacity 0.28s ease, visibility 0.28s;
+//     border-top: 1px solid $dark-border;
+
+//     // When navbar has scrolled and shrunk, menu top follows
+//     &.scrolled {
+//         top: $nav-height-scrolled;
+//     }
+
+//     &.is-open {
+//         transform: translateY(0);
+//         opacity: 1;
+//         visibility: visible;
+//     }
+// }
+
+// .mobile-menu-inner {
+//     padding: 2rem 1.5rem 3rem;
+// }
+
+// .mobile-nav-links {
+//     list-style: none;
+//     padding: 0;
+//     margin: 0 0 2.5rem;
+
+//     li {
+//         opacity: 0;
+//         transform: translateX(-12px);
+//         transition: opacity 0.25s ease, transform 0.25s ease;
+
+//         .mobile-menu.is-open & {
+//             opacity: 1;
+//             transform: translateX(0);
+//         }
+
+//         &+li {
+//             margin-top: 0.25rem;
+//         }
+//     }
+
+//     a {
+//         display: block;
+//         font-family: $font-display;
+//         font-size: 2.2rem;
+//         letter-spacing: 0.06em;
+//         color: rgba(255, 255, 255, 0.75);
+//         text-decoration: none;
+//         padding: 0.4rem 0;
+//         border-bottom: 1px solid transparent;
+//         transition: color 0.2s, border-color 0.2s;
+
+//         &:hover,
+//         &.active {
+//             color: $white;
+//             border-bottom-color: $amber;
+//         }
+
+//         &.active {
+//             color: $amber;
+//         }
+//     }
+// }
+
+// .mobile-actions {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 1.25rem;
+
+//     .btn-nav-quote {
+//         display: block;
+//         padding: 0.85rem;
+//         font-size: 0.88rem;
+//         text-align: center;
+//     }
+// }
+
+// .mobile-socials {
+//     display: flex;
+//     gap: 0.75rem;
+
+//     .mob-social-link {
+//         flex: 1;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         gap: 8px;
+//         padding: 0.7rem 0.5rem;
+//         background: $dark-card;
+//         border: 1px solid $dark-border;
+//         border-radius: 6px;
+//         color: $muted-light;
+//         font-size: 0.8rem;
+//         font-weight: 500;
+//         text-decoration: none;
+//         transition: color 0.2s, border-color 0.2s, background 0.2s;
+
+//         &:hover {
+//             color: $white;
+//             border-color: rgba(255, 255, 255, 0.2);
+//         }
+
+//         &.whatsapp {
+//             color: $green-wa;
+//             border-color: rgba(37, 211, 102, 0.25);
+
+//             &:hover {
+//                 background: rgba(37, 211, 102, 0.08);
+//             }
+//         }
+//     }
+// }
+
+// // ── Reduced motion ────────────────────────────────────────────────────────────
+// @media (prefers-reduced-motion: reduce) {
+
+//     .main-nav,
+//     .mobile-menu,
+//     .ham-line,
+//     .nav-link-item::after {
+//         transition: none;
+//     }
+// }
+
+
 // ── Tokens (mirror home tokens — move to shared _variables.scss eventually) ──
 $black: #0D0D0D;
 $dark: #141414;
 $dark-card: #1A1A1A;
 $dark-border: #2A2A2A;
-$amber: #F59E0B;
-$amber-light: #FCD34D;
 $white: #FFFFFF;
 $off-white: #F5F5F0;
 $muted: #888888;
@@ -50,7 +523,7 @@ $topbar-height: 36px;
         }
 
         &:hover {
-            color: $amber;
+            color: var(--accent);
         }
     }
 
@@ -137,7 +610,7 @@ $topbar-height: 36px;
         left: 0;
         right: 0;
         height: 2px;
-        background: linear-gradient(90deg, transparent 0%, $amber 35%, $amber-light 65%, transparent 100%);
+        background: linear-gradient(90deg, transparent 0%, var(--accent) 35%, var(--accent-light) 65%, transparent 100%);
         opacity: 0.85;
         pointer-events: none;
     }
@@ -161,7 +634,7 @@ $topbar-height: 36px;
     .brand-mark {
         width: 30px;
         height: 30px;
-        border: 2px solid $amber;
+        border: 2px solid var(--accent);
         border-radius: 4px;
         display: flex;
         align-items: center;
@@ -171,7 +644,7 @@ $topbar-height: 36px;
         .brand-mark-inner {
             width: 10px;
             height: 10px;
-            background: $amber;
+            background: var(--accent);
             border-radius: 2px;
         }
     }
@@ -185,11 +658,11 @@ $topbar-height: 36px;
     }
 
     .brand-accent {
-        color: $amber;
+        color: var(--accent);
     }
 
     &:hover .brand-mark {
-        background: rgba(245, 158, 11, 0.12);
+        background: rgba(var(--accent-rgb), 0.12);
     }
 }
 
@@ -223,7 +696,7 @@ $topbar-height: 36px;
             left: 0.9rem;
             right: 0.9rem;
             height: 1.5px;
-            background: $amber;
+            background: var(--accent);
             transform: scaleX(0);
             transition: transform 0.22s ease;
             transform-origin: left;
@@ -265,7 +738,7 @@ $topbar-height: 36px;
 
 .btn-nav-quote {
     display: inline-block;
-    background: $amber;
+    background: var(--accent);
     color: $black;
     font-family: $font-body;
     font-size: 0.8rem;
@@ -275,12 +748,12 @@ $topbar-height: 36px;
     padding: 0.55rem 1.25rem;
     border-radius: 4px;
     text-decoration: none;
-    border: 2px solid $amber;
+    border: 2px solid var(--accent);
     transition: background 0.2s, color 0.2s, transform 0.15s;
 
     &:hover {
-        background: $amber-light;
-        border-color: $amber-light;
+        background: var(--accent-light);
+        border-color: var(--accent-light);
         color: $black;
         transform: translateY(-1px);
     }
@@ -299,11 +772,11 @@ $topbar-height: 36px;
     transition: border-color 0.2s;
 
     &:hover {
-        border-color: $amber;
+        border-color: var(--accent);
     }
 
     &:focus-visible {
-        outline: 2px solid $amber;
+        outline: 2px solid var(--accent);
         outline-offset: 2px;
     }
 
@@ -318,7 +791,7 @@ $topbar-height: 36px;
     }
 
     &.is-open {
-        border-color: $amber;
+        border-color: var(--accent);
 
         .ham-line:nth-child(1) {
             transform: translateY(6.5px) rotate(45deg);
@@ -403,11 +876,11 @@ $topbar-height: 36px;
         &:hover,
         &.active {
             color: $white;
-            border-bottom-color: $amber;
+            border-bottom-color: var(--accent);
         }
 
         &.active {
-            color: $amber;
+            color: var(--accent);
         }
     }
 }
